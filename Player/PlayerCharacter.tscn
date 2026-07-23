@@ -3,11 +3,22 @@
 [ext_resource type="Script" uid="uid://dmp4w8g1glyp0" path="res://Player/player_character.gd" id="1_pj2h1"]
 [ext_resource type="Script" uid="uid://b4lyw8i3tfn2g" path="res://Scripts/Components/healthComponent.gd" id="2_1gtpu"]
 [ext_resource type="Script" uid="uid://b0vx0lr5bpl75" path="res://Scripts/Components/DamageComponent.gd" id="3_jdwmw"]
-[ext_resource type="Texture2D" uid="uid://bruru5uwmsgl1" path="res://Assets/Character_Sprites/Placeholder_sprite_sheet.png" id="4_jdwmw"]
+[ext_resource type="Shader" uid="uid://dp4hiwuvbj7o6" path="res://Assets/Shaders/outline.gdshader" id="4_05ndu"]
+[ext_resource type="PackedScene" uid="uid://tfgwdewbqruo" path="res://Assets/Shaders/Shader_Examples/player_sprite_example.tscn" id="5_05ndu"]
 
 [sub_resource type="Curve" id="Curve_jdwmw"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gnsy3"]
+render_priority = 0
+shader = ExtResource("4_05ndu")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/thickness = 0.0
+shader_parameter/use_billboard = false
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6ch2b"]
+viewport_path = NodePath("Sprite3D/SubViewport")
 
 [node name="PlayerCharacter" type="Node3D" unique_id=421438093]
 script = ExtResource("1_pj2h1")
@@ -27,11 +38,15 @@ _damage_curve = SubResource("Curve_jdwmw")
 metadata/_custom_type_script = "uid://b0vx0lr5bpl75"
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1184020611]
-offset = Vector2(10, 0)
-texture = ExtResource("4_jdwmw")
-hframes = 2
-vframes = 5
-frame = 8
-region_rect = Rect2(3, 2, 186, 244)
+material_overlay = SubResource("ShaderMaterial_gnsy3")
+cast_shadow = 0
+lod_bias = 0.001
+gi_lightmap_texel_scale = 0.0446
+texture = SubResource("ViewportTexture_6ch2b")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=624464985]
+[node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=1080025832]
+transparent_bg = true
+size = Vector2i(128, 128)
+render_target_update_mode = 1
+
+[node name="PlayerTest" parent="Sprite3D/SubViewport" unique_id=582696882 instance=ExtResource("5_05ndu")]

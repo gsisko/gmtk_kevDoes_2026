@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://tfgwdewbqruo"]
+
+[ext_resource type="Shader" uid="uid://5lfllxse1774" path="res://Assets/Shaders/2d_outline_Shader.gdshader" id="1_p7nes"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_0p2yl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hivdi"]
+shader = ExtResource("1_p7nes")
+shader_parameter/outline_width = 0.046000002185
+shader_parameter/outline_tint = Color(1, 1, 1, 1)
+shader_parameter/atlas_region_pos = Vector2(0, 0)
+shader_parameter/atlas_region_size = Vector2(1, 1)
+shader_parameter/draw_size = Vector2(1, 1)
+
+[node name="PlayerTest" type="Node2D" unique_id=582696882]
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1495862985]
+material = SubResource("ShaderMaterial_hivdi")
+texture = ExtResource("2_0p2yl")
+centered = false
