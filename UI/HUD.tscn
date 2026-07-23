@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://5rwv1cyyc5eg"]
+
+[ext_resource type="Script" uid="uid://dxldxqyggmyw1" path="res://UI/hud.gd" id="1_ijstf"]
+[ext_resource type="PackedScene" uid="uid://da8cl8sh2v00f" path="res://UI/Elements/Health_Bar.tscn" id="1_yixhe"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yixhe"]
+font_size = 48
+
+[node name="Hud" type="Control" unique_id=1348445466]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ijstf")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=900371841]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1502218568]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="HealthBar" parent="MarginContainer/HBoxContainer" unique_id=702175922 instance=ExtResource("1_yixhe")]
+custom_minimum_size = Vector2(360, 24)
+layout_mode = 2
+size_flags_vertical = 4
+fill_mode = 1
+
+[node name="timer_txt" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1744849599]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "000"
+label_settings = SubResource("LabelSettings_yixhe")
+horizontal_alignment = 1
+
+[node name="HealthBar2" parent="MarginContainer/HBoxContainer" unique_id=370517419 instance=ExtResource("1_yixhe")]
+custom_minimum_size = Vector2(360, 24)
+layout_mode = 2
+size_flags_vertical = 4

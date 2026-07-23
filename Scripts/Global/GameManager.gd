@@ -4,8 +4,9 @@ signal game_start
 signal player_died(player:PlayerCharacter)
 
 enum GAMEMODE {MENU, BATTLE}
-var battle_start_time: float
-var battle_goal_time: float
+
+var battle_instance:BattleScene
+
 
 var players : Array[PlayerCharacter]:
 	set(update):
@@ -33,15 +34,7 @@ func _on_health_update(_change:float, current:float, player:PlayerCharacter):
 	print("HEALTH UPDATE [%s]: %s" %[player.name, current])
 #endregion
 
-
 func start_game(): game_start.emit()
-func start_round_timer(length_seconds:float):
-	battle_start_time = Time.get_ticks_msec()
-	battle_goal_time = battle_start_time +  (length_seconds * 1000) # Make length into msecs
+func quit_game(): get_tree().quit()
 
-func get_time_distance_percentage(time_msec:float) -> float:
-	#Get the Absolute difference
-	var difference:float = absf(battle_goal_time-time_msec) 
-	
-	return clampf(1.0 - (difference/battle_goal_time), 0 ,1.0)
-	
+func get_battle_scene() -> BattleScene: return battle_instance
