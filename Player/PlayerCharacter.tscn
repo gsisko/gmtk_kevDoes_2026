@@ -14,12 +14,14 @@ script = ExtResource("1_pj2h1")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1242814886]
 script = ExtResource("2_1gtpu")
+debug = true
 max_health = 100.0
 curr_health = 100.0
 metadata/_custom_type_script = "uid://b4lyw8i3tfn2g"
 
 [node name="DamageComponent" type="Node" parent="." unique_id=753364670]
 script = ExtResource("3_jdwmw")
+debug = true
 _damage_curve = SubResource("Curve_jdwmw")
 metadata/_custom_type_script = "uid://b0vx0lr5bpl75"
 
