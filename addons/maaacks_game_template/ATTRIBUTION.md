@@ -1,13 +1,15 @@
 # Attribution
 ## Collaborators
 
+Pencil screnspace shader from Arri: https://godotshaders.com/shader/pencil-screen-space-shader/
+
 ### Godot Minimal Game Template
 ![Maaack Plugin Icon](/addons/maaacks_game_template/assets/plugin_logo/logo.png)  
 Author: [Marek Belski and contributors](https://github.com/Maaack/Godot-Minimal-Game-Template/graphs/contributors)  
 Source: [github: Godot-Minimal-Game-Template](https://github.com/Maaack/Godot-Minimal-Game-Template)  
 License: [MIT License](LICENSE.txt)  
 
-## Sourced
+## Source
 #### Godot Engine Logo
 Author: Andrea Calabró  
 Source: [godotengine.org : press](https://godotengine.org/press/)  
