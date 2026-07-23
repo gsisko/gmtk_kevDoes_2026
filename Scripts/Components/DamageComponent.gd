@@ -13,6 +13,6 @@ func deal_damage(health:HealthComponent):
 	health.lose_health(damage)
 
 func _calculate_damage()->float:
-	var sample_percent:float = GameManager.get_time_distance_percentage(Time.get_ticks_msec())
+	var sample_percent:float = GameManager.battle_instance.get_time_distance_percentage()
 	if debug: print("Damage Sampling with Percentage [%s]" %[sample_percent])
 	return _max_damage * (_damage_curve.sample(sample_percent))

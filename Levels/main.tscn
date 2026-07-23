@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://crvotlhkaquu3"]
 
 [ext_resource type="Script" uid="uid://cjbv01egm5ojf" path="res://Levels/main.gd" id="1_gnif3"]
+[ext_resource type="PackedScene" uid="uid://5rwv1cyyc5eg" path="res://UI/HUD.tscn" id="2_gnif3"]
 
 [node name="main" type="CanvasLayer" unique_id=1465137223]
 script = ExtResource("1_gnif3")
@@ -13,6 +14,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+
+[node name="Hud" parent="UI" unique_id=1348445466 instance=ExtResource("2_gnif3")]
+layout_mode = 1
 
 [node name="Entities" type="Node3D" parent="." unique_id=819906088]
 
