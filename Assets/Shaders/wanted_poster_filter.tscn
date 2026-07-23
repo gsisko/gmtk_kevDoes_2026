@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bavuhnh580afh"]
+
+[ext_resource type="Shader" uid="uid://jmmwwuff5wsx" path="res://Assets/Shaders/pencil_draw.gdshader" id="1_18cmn"]
+[ext_resource type="Texture2D" uid="uid://tnpc4istwpd1" path="res://Assets/Textures/parchment-300x300.jpg" id="2_s540u"]
+[ext_resource type="Texture2D" uid="uid://byak2nanythmh" path="res://Assets/Textures/pencil-300x300.jpg" id="3_djy48"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_syg6y"]
+shader = ExtResource("1_18cmn")
+shader_parameter/u_bgColor = Vector4(1, 1, 1, 1)
+shader_parameter/u_bgColorFactor = 0.4
+shader_parameter/u_patternColor = Vector4(0, 0, 0, 1)
+shader_parameter/u_threshold1 = 0.75
+shader_parameter/u_threshold2 = 0.5
+shader_parameter/u_threshold3 = 0.25
+shader_parameter/u_threshold4 = 0.05
+shader_parameter/u_bgTiling = Vector2(1, 1)
+shader_parameter/u_patternTiling = Vector2(1, 1)
+shader_parameter/u_bgTexture = ExtResource("2_s540u")
+shader_parameter/u_patternTexture = ExtResource("3_djy48")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6ch2b"]
+size = Vector2(8, 12)
+
+[node name="Wanted_Poster_Filter" type="Sprite2D" unique_id=1706348064]
+material = SubResource("ShaderMaterial_syg6y")
+scale = Vector2(300, 300)
+texture = SubResource("PlaceholderTexture2D_6ch2b")

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bkpemcvteg3tu"]
+
+[ext_resource type="Script" uid="uid://dmp4w8g1glyp0" path="res://Player/player_character.gd" id="1_pj2h1"]
+[ext_resource type="Script" uid="uid://b4lyw8i3tfn2g" path="res://Scripts/Components/healthComponent.gd" id="2_1gtpu"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_k87gr"]
+[ext_resource type="Script" uid="uid://b0vx0lr5bpl75" path="res://Scripts/Components/DamageComponent.gd" id="3_jdwmw"]
+
+[sub_resource type="Curve" id="Curve_jdwmw"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="PlayerCharacter" type="Node3D" unique_id=421438093]
+script = ExtResource("1_pj2h1")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1242814886]
+script = ExtResource("2_1gtpu")
+debug = true
+max_health = 100.0
+curr_health = 100.0
+metadata/_custom_type_script = "uid://b4lyw8i3tfn2g"
+
+[node name="DamageComponent" type="Node" parent="." unique_id=753364670]
+script = ExtResource("3_jdwmw")
+debug = true
+_damage_curve = SubResource("Curve_jdwmw")
+metadata/_custom_type_script = "uid://b0vx0lr5bpl75"
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1184020611]
+texture = ExtResource("2_k87gr")
