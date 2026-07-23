@@ -8,4 +8,4 @@ func deal_damage(health:HealthComponent):
 	health.lose_health(_calculate_damage())
 
 func _calculate_damage()->float:
-	return _max_damage
+	return _max_damage * (_damage_curve.sample(1.0))
