@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://crvotlhkaquu3"]
+
+[ext_resource type="Script" uid="uid://cjbv01egm5ojf" path="res://Levels/main.gd" id="1_gnif3"]
+
+[node name="main" type="CanvasLayer" unique_id=1465137223]
+script = ExtResource("1_gnif3")
+
+[node name="UI" type="Control" parent="." unique_id=1641981175]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Entities" type="Node3D" parent="." unique_id=819906088]
+
+[node name="Level_Root" type="Node3D" parent="." unique_id=1944316228]

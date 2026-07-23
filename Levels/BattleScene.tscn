@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://clyy8ub0nlhdm"]
+
+[ext_resource type="Script" uid="uid://bls0ew4di1enc" path="res://Levels/battle_scene.gd" id="1_on2e4"]
+[ext_resource type="PackedScene" uid="uid://bkpemcvteg3tu" path="res://Player/PlayerCharacter.tscn" id="1_sh5gb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bhunq"]
+size = Vector3(8.278198, 0.001, 9.108887)
+
+[node name="BattleScene" type="Node3D" unique_id=339370215]
+script = ExtResource("1_on2e4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1247446420]
+mesh = SubResource("BoxMesh_bhunq")
+
+[node name="PlayerCharacter" parent="." unique_id=421438093 node_paths=PackedStringArray("target") instance=ExtResource("1_sh5gb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.517144, 1, 2.119993)
+target = NodePath("../PlayerCharacter2")
+
+[node name="PlayerCharacter2" parent="." unique_id=1464611680 node_paths=PackedStringArray("target") instance=ExtResource("1_sh5gb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8823719, 1, -2.245981)
+target = NodePath("../PlayerCharacter")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1079022246]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.763, 4.399162)
