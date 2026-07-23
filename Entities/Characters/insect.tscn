@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://0cihr0yf86ml"]
+
+[ext_resource type="Texture2D" uid="uid://dyjmgj1qiory5" path="res://Assets/Character_Sprites/Squeeky_Sheriff.png" id="1_82spj"]
+[ext_resource type="PackedScene" uid="uid://bavuhnh580afh" path="res://Assets/Shaders/wanted_poster_filter.tscn" id="2_qtvpf"]
+[ext_resource type="Shader" uid="uid://jmmwwuff5wsx" path="res://Assets/Shaders/pencil_draw.gdshader" id="3_wonxx"]
+[ext_resource type="Texture2D" uid="uid://tnpc4istwpd1" path="res://Assets/Textures/parchment-300x300.jpg" id="4_ul4qp"]
+[ext_resource type="Texture2D" uid="uid://byak2nanythmh" path="res://Assets/Textures/pencil-300x300.jpg" id="5_texc2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0l6sq"]
+shader = ExtResource("3_wonxx")
+shader_parameter/u_bgColor = Vector4(1, 1, 1, 1)
+shader_parameter/u_bgColorFactor = 0.4
+shader_parameter/u_patternColor = Vector4(0, 0, 0, 1)
+shader_parameter/u_threshold1 = 0.430000020425
+shader_parameter/u_threshold2 = 0.53600002546
+shader_parameter/u_threshold3 = 0.1600000076
+shader_parameter/u_threshold4 = 0.05
+shader_parameter/u_bgTiling = Vector2(1, 1)
+shader_parameter/u_patternTiling = Vector2(1, 1)
+shader_parameter/u_bgTexture = ExtResource("4_ul4qp")
+shader_parameter/u_patternTexture = ExtResource("5_texc2")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qm1dv"]
+size = Vector2(3, 4)
+
+[node name="Insect" type="Sprite2D" unique_id=1154505922]
+texture = ExtResource("1_82spj")
+
+[node name="Wanted_Poster_Filter" parent="." unique_id=1706348064 instance=ExtResource("2_qtvpf")]
+material = SubResource("ShaderMaterial_0l6sq")
+scale = Vector2(263.82, 263.82)
+texture = SubResource("PlaceholderTexture2D_qm1dv")
