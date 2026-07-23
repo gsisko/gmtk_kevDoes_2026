@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://tfgwdewbqruo"]
 
 [ext_resource type="Shader" uid="uid://5lfllxse1774" path="res://Assets/Shaders/2d_outline_Shader.gdshader" id="1_p7nes"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_0p2yl"]
+[ext_resource type="Texture2D" uid="uid://bruru5uwmsgl1" path="res://Assets/Character_Sprites/Placeholder_sprite_sheet.png" id="2_46xem"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hivdi"]
 shader = ExtResource("1_p7nes")
@@ -15,5 +15,5 @@ shader_parameter/draw_size = Vector2(1, 1)
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1495862985]
 material = SubResource("ShaderMaterial_hivdi")
-texture = ExtResource("2_0p2yl")
+texture = ExtResource("2_46xem")
 centered = false
