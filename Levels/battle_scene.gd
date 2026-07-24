@@ -107,7 +107,7 @@ func _on_exit_state():
 func get_time_distance_percentage():
 	if round_timer.is_stopped(): return 0
 	var difference_sec: float = round_length_sec-round_timer.time_left
-	return (1.0 - (difference_sec/round_length_sec))
+	return (difference_sec/round_length_sec)
 	
 func _any_player_input()->bool:
 	return Input.is_action_just_pressed("P1_Attack") || Input.is_action_just_pressed("P2_Attack")
