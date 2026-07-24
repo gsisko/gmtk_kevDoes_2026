@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dxldxqyggmyw1" path="res://UI/hud.gd" id="1_ijstf"]
 [ext_resource type="Texture2D" uid="uid://d4hrlvbhsg402" path="res://Assets/Textures/Clock/Watch.png" id="2_4n7mi"]
+[ext_resource type="Texture2D" uid="uid://cnnveutn2puku" path="res://Assets/Textures/Background_1.png" id="2_uk570"]
 [ext_resource type="Texture2D" uid="uid://bjj5uvdhaiatr" path="res://Assets/Textures/Clock/Backdrop.png" id="3_uk570"]
 
 [node name="Hud" type="Control" unique_id=1348445466]
@@ -12,6 +13,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ijstf")
+
+[node name="BG" type="TextureRect" parent="." unique_id=1993697665]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_uk570")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=900371841]
 layout_mode = 1

@@ -22,7 +22,8 @@ GameManager="*uid://dgjm0i1x2pbqm"
 [display]
 
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep_width"
+window/stretch/scale_mode="integer"
 
 [input]
 

@@ -82,7 +82,6 @@ func _on_enter_state():
 					#Open gate if one player is out of ammo, End Battle if Both are out
 					if !amount_out_gate: amount_out_gate = true 
 					else: end_battle() 
-	
 func _process_state():
 	match state:
 		BATTLE_STATE.Battle_Start: 	if _any_player_input(): state = BATTLE_STATE.Pre_Round

@@ -6,12 +6,21 @@ class_name PlayerHUD
 var _player: PlayerCharacter
 
 @onready var _hp_bar:Health_Bar = $HBoxContainer/VBoxContainer/HealthBar
+@export  var flipped:bool = false
 
+func flip_hud(flip:bool): 
+	if flip:
+		scale.x = abs(scale.x)
+		position.x = 0.0
+	else:
+		scale.x = abs(scale.x)*-1
+		position.x = size.x/2.5
+	
 func sync_to_player(player: PlayerCharacter):
 	_player = player
 	_hp_bar.set_health(_player.health)
 	_player.bullet_amount_update.connect(_on_player_bullet_update)
-
+	_player.health.lost_health.connect(_on_player_lost_health)
 func _on_player_bullet_update():
 	if _player.get_ammo_count() > _ammo_tokens.size(): return
 	
@@ -20,3 +29,5 @@ func _on_player_bullet_update():
 	for i in range(_player.get_ammo_count()): 
 		if !_ammo_tokens[i].is_active && i >= missing_amount: _ammo_tokens[i].is_active = true
 		if _ammo_tokens[i].is_active && i < missing_amount: _ammo_tokens[i].is_active = false
+func _on_player_lost_health(): pass
+	

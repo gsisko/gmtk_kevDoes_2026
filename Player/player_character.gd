@@ -3,7 +3,8 @@ extends Node2D
 class_name PlayerCharacter
 
 signal attacked
-signal bullet_amount_update()
+signal bullet_amount_update
+signal dead
 
 enum PLAYER_STATE {IDLE, HIT, ATTACK, DEAD}
 @export var _state:PLAYER_STATE = PLAYER_STATE.IDLE :
@@ -42,18 +43,14 @@ var curr_shots:int = 6 :
 @onready var health:HealthComponent = $HealthComponent
 @onready var damage:DamageComponent = $DamageComponent
 @onready var _p_hud: PlayerHUD = $PlayerHUD
+@onready var _damage_counter:Label = $Dmg_Counter
+@onready var _anim:AnimationPlayer = $AnimationPlayer
 
 var init_transform:Transform2D
 
 func _ready() -> void:
 	##A bit hard coded but it makes it work... Hud can switch sides based on character perspective
-	if _sprite_show_back:
-		_p_hud.scale.x = abs(_p_hud.scale.x)
-		_p_hud.position.x = 0.0 ## Hard-Coded :p
-	else: 
-		_p_hud.scale.x = -1* abs(_p_hud.scale.x)
-		_p_hud.position.x = 368.0 ## Hard-Coded :p
-		
+	_p_hud.flip_hud(_sprite_show_back)
 	
 	if Engine.is_editor_hint(): return
 	
@@ -103,8 +100,13 @@ func _update_animation():
 	_sprite.frame_coords = Vector2(perspective_id, _anim_row_anchor[_state])
 	_sprite.flip_h = _sprite_flipped
 func _handle_health_lose(_change:float, _current:float):
+	#PLAY ANIMATION DAMAGE
+	_damage_counter.text = str(abs(int(_change)))
+	_anim.play("Damage_Counter_Tick")
+	
 	_state = PLAYER_STATE.HIT
 	
 func _handle_death():
 	_state = PLAYER_STATE.DEAD
+	dead.emit()
 func _on_round_start(): _state = PLAYER_STATE.IDLE

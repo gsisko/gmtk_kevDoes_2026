@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvibr3cyj2kfo"
-path="res://.godot/imported/Hand_red.png-108b7e1162ea03aebeb8167091f618c5.ctex"
+uid="uid://cnnveutn2puku"
+path="res://.godot/imported/Background_1.png-34ab0404155c6fe3ba628e85b446e3e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/Clock/Hand_red.png"
-dest_files=["res://.godot/imported/Hand_red.png-108b7e1162ea03aebeb8167091f618c5.ctex"]
+source_file="res://Assets/Textures/Background_1.png"
+dest_files=["res://.godot/imported/Background_1.png-34ab0404155c6fe3ba628e85b446e3e2.ctex"]
 
 [params]
 

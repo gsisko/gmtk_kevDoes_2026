@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7ldxpqhpxia"
-path="res://.godot/imported/Hand_black.png-6cad795479eb95522ac848ff521bafbb.ctex"
+uid="uid://bgx1t57xfq8w5"
+path="res://.godot/imported/White arrow.png-b5434fe92f5bcea67d61e7aab4f33194.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/Clock/Hand_black.png"
-dest_files=["res://.godot/imported/Hand_black.png-6cad795479eb95522ac848ff521bafbb.ctex"]
+source_file="res://Assets/Textures/Clock/White arrow.png"
+dest_files=["res://.godot/imported/White arrow.png-b5434fe92f5bcea67d61e7aab4f33194.ctex"]
 
 [params]
 
