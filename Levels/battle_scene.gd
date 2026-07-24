@@ -25,10 +25,18 @@ var battle_round:int = 1 :
 		print("NEW ROUND: %s" %[battle_round])
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
-	GameManager.players = players
+	
 	GameManager.game_start.connect(start_battle)
+	
+	GameManager.players = players
+	GameManager.hud.sync_players()
+	
 	camera.make_current()
 	round_timer.timeout.connect(end_round)
+	
+	
+	#enter initial state
+	_on_enter_state()
 
 func _process(_delta: float) -> void: 
 	_process_state()
@@ -37,6 +45,7 @@ func get_camera()->Camera3D: return camera
 
 func start_battle():
 	state = BATTLE_STATE.Battle_Start
+	
 func end_battle():
 	state = BATTLE_STATE.Battle_End
 func begin_round(): 
@@ -46,12 +55,15 @@ func end_round():
 
 #region BATTLE FSM
 func _on_enter_state():
+	if Engine.is_editor_hint():return
 	print("ENTERING - %s" %[BATTLE_STATE.keys()[state]])
 	match state:
-		BATTLE_STATE.Battle_Start:
+		BATTLE_STATE.Battle_Start: 
 			#ensure both players are reset
-			for i in players: i.reset()
+			for i in players: 
+				i.reset()
 			battle_round = 1
+			
 		BATTLE_STATE.Duel: 
 			round_timer.start(round_length_sec)
 			round_start.emit()

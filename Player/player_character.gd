@@ -24,7 +24,7 @@ var _anim_row_anchor:Dictionary[PLAYER_STATE, int] = {
 
 var curr_shots:int = 6
 
-@onready var _sprite:Sprite3D = $Sprite3D
+@onready var _sprite:Sprite2D = $Sprite3D/SubViewport/Sprite2D
 @export_group("Sprite Settings","_sprite")
 @export var _sprite_show_back:bool = false :
 	set(update):
@@ -60,8 +60,12 @@ func attack():
 func reset():
 	curr_shots = max_shots
 	health.reset_health()
-
-func set_state(state:PLAYER_STATE): _state = state
+	_state = PLAYER_STATE.IDLE
+	redraw_sprite()
+	
+func redraw_sprite(): _update_animation()
+func set_state(state:PLAYER_STATE): 
+	_state = state
 
 #region Player FSM
 func get_state()->PLAYER_STATE: return _state

@@ -6,6 +6,7 @@ signal player_died(player:PlayerCharacter)
 enum GAMEMODE {MENU, BATTLE}
 
 var battle_instance:BattleScene
+var hud:HUD
 
 
 var players : Array[PlayerCharacter]:
