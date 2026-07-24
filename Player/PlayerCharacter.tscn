@@ -37,14 +37,14 @@ metadata/_custom_type_script = "uid://b0vx0lr5bpl75"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=846369118]
 material = SubResource("ShaderMaterial_pxyys")
+position = Vector2(180, 148)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_05ndu")
 hframes = 2
 vframes = 4
 
 [node name="PlayerHUD" parent="." unique_id=1184330613 instance=ExtResource("6_pxyys")]
-offset_left = 181.00002
-offset_top = -163.0
-offset_right = 646.00006
-offset_bottom = -63.0
+offset_left = 368.0
+offset_right = 833.00037
+offset_bottom = 100.0
 scale = Vector2(-0.7, 0.7)

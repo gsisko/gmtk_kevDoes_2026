@@ -43,8 +43,20 @@ var curr_shots:int = 6 :
 @onready var damage:DamageComponent = $DamageComponent
 @onready var _p_hud: PlayerHUD = $PlayerHUD
 
+var init_transform:Transform2D
+
 func _ready() -> void:
+	
+	##A bit hard coded but it makes it work... Hud can switch sides based on character perspective
+	if _sprite_show_back:
+		_p_hud.scale.x = -1* abs(_p_hud.scale.x)
+		_p_hud.position.x = 368.0 ## Hard-Coded
+	else: 
+		_p_hud.scale.x = abs(_p_hud.scale.x)
+		_p_hud.position.x = 0.0
+	
 	if Engine.is_editor_hint(): return
+	
 	
 	GameManager.game_start.connect(reset)
 	_p_hud.sync_to_player(self)

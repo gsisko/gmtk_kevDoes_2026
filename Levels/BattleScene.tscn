@@ -15,11 +15,12 @@ limit_bottom = 648
 
 [node name="Timer" type="Timer" parent="." unique_id=1345055870]
 
-[node name="PlayerCharacter2" parent="." unique_id=1464611680 node_paths=PackedStringArray("target") instance=ExtResource("1_sh5gb")]
-position = Vector2(816, 288)
-target = NodePath("../PlayerCharacter")
-
-[node name="PlayerCharacter" parent="." unique_id=421438093 node_paths=PackedStringArray("target") instance=ExtResource("1_sh5gb")]
-position = Vector2(362, 461)
-scale = Vector2(1.5, 1.5)
+[node name="PlayerCharacter" parent="." unique_id=1662879574 node_paths=PackedStringArray("target") instance=ExtResource("1_sh5gb")]
+position = Vector2(81, 335)
+scale = Vector2(1.2, 1.2)
 target = NodePath("../PlayerCharacter2")
+
+[node name="PlayerCharacter2" parent="." unique_id=1150977014 node_paths=PackedStringArray("target") instance=ExtResource("1_sh5gb")]
+position = Vector2(605, 136)
+target = NodePath("../PlayerCharacter")
+_sprite_show_back = true
