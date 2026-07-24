@@ -1,5 +1,7 @@
-extends TextureProgressBar
+extends Control
 class_name Health_Bar
+
+@onready var bar:TextureProgressBar = $TextureProgressBar
 
 var _health : HealthComponent :
 	set(update):
@@ -9,8 +11,10 @@ var _health : HealthComponent :
 			if !_health: return
 			_health.health_update.connect(_update_display)
 
-func set_health(health:HealthComponent): _health = health
+func set_health(health:HealthComponent): 
+	_health = health
+	_update_display(0, _health.curr_health)
 
 func _update_display(change:float, current:float):
-	value = current/_health.max_health
-	
+	if !_health:return
+	bar.value = (_health.curr_health/_health.max_health) * bar.max_value

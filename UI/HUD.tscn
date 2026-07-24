@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://5rwv1cyyc5eg"]
 
 [ext_resource type="Script" uid="uid://dxldxqyggmyw1" path="res://UI/hud.gd" id="1_ijstf"]
-[ext_resource type="PackedScene" uid="uid://da8cl8sh2v00f" path="res://UI/Elements/Health_Bar.tscn" id="1_yixhe"]
+[ext_resource type="Texture2D" uid="uid://cnggjkdv1t3nr" path="res://Assets/Textures/Bars/Bar_white.png" id="2_4n7mi"]
+[ext_resource type="PackedScene" uid="uid://8xcq5smc7hw6" path="res://UI/player_hud.tscn" id="2_ijstf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yixhe"]
 font_size = 48
@@ -23,28 +24,41 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer" unique_id=2129677719]
+modulate = Color(0.13770881, 0.057627343, 0, 1)
+custom_minimum_size = Vector2(0, 88.885)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("2_4n7mi")
+region_rect = Rect2(40, 32, 731, 53)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1502218568]
 layout_mode = 2
-size_flags_vertical = 0
-theme_override_constants/separation = 0
 
-[node name="HealthBar" parent="MarginContainer/HBoxContainer" unique_id=702175922 instance=ExtResource("1_yixhe")]
-custom_minimum_size = Vector2(360, 24)
+[node name="PlayerHUD" parent="MarginContainer/HBoxContainer" unique_id=1184330613 instance=ExtResource("2_ijstf")]
+custom_minimum_size = Vector2(0, 208.62)
 layout_mode = 2
-size_flags_vertical = 4
-fill_mode = 1
+size_flags_horizontal = 3
+size_flags_vertical = 1
 
 [node name="timer_txt" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1744849599]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 0
+offset_transform_enabled = true
 text = "000"
 label_settings = SubResource("LabelSettings_yixhe")
 horizontal_alignment = 1
 
-[node name="HealthBar2" parent="MarginContainer/HBoxContainer" unique_id=370517419 instance=ExtResource("1_yixhe")]
-custom_minimum_size = Vector2(360, 24)
+[node name="PlayerHUD2" parent="MarginContainer/HBoxContainer" unique_id=893847874 instance=ExtResource("2_ijstf")]
+custom_minimum_size = Vector2(0, 208.62)
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_horizontal = 3
+size_flags_vertical = 1
+offset_transform_enabled = true
+offset_transform_scale = Vector2(-1, 1)

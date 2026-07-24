@@ -12,7 +12,6 @@ signal health_depleted()
 @export var curr_health: float:
 	set(update):
 		curr_health = clampf(update, 0, max_health)
-		if update == curr_health: return
 		
 		if curr_health <= 0: health_depleted.emit()
 		
@@ -27,3 +26,4 @@ func gain_health(amount:float):
 	gained_health.emit(amount, curr_health)
 func reset_health(): curr_health = max_health
 func die(): curr_health = 0
+func get_percent() -> float: return curr_health/max_health

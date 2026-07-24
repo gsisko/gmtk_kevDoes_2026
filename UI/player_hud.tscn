@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://8xcq5smc7hw6"]
+
+[ext_resource type="Script" uid="uid://cdhs2gnfiawt0" path="res://player_hud.gd" id="1_5o0p8"]
+[ext_resource type="PackedScene" uid="uid://da8cl8sh2v00f" path="res://UI/Elements/Health_Bar.tscn" id="2_dpci0"]
+[ext_resource type="PackedScene" uid="uid://r7ujaad7030v" path="res://UI/Elements/Bullet_Token.tscn" id="3_dpci0"]
+
+[node name="PlayerHUD" type="Control" unique_id=1184330613]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_5o0p8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=114556337]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HealthBar" parent="VBoxContainer" unique_id=175721822 instance=ExtResource("2_dpci0")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1292730854]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_right = 120
+
+[node name="ammo_root" type="VBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=1119459592]
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 2
+
+[node name="BulletToken" parent="VBoxContainer/MarginContainer/ammo_root" unique_id=1707165111 instance=ExtResource("3_dpci0")]
+layout_mode = 2
+
+[node name="BulletToken2" parent="VBoxContainer/MarginContainer/ammo_root" unique_id=1021531550 instance=ExtResource("3_dpci0")]
+layout_mode = 2
+
+[node name="BulletToken3" parent="VBoxContainer/MarginContainer/ammo_root" unique_id=1166695444 instance=ExtResource("3_dpci0")]
+layout_mode = 2
+
+[node name="BulletToken4" parent="VBoxContainer/MarginContainer/ammo_root" unique_id=1968592375 instance=ExtResource("3_dpci0")]
+layout_mode = 2
+
+[node name="BulletToken5" parent="VBoxContainer/MarginContainer/ammo_root" unique_id=181447238 instance=ExtResource("3_dpci0")]
+layout_mode = 2
+
+[node name="BulletToken6" parent="VBoxContainer/MarginContainer/ammo_root" unique_id=2074362567 instance=ExtResource("3_dpci0")]
+layout_mode = 2
