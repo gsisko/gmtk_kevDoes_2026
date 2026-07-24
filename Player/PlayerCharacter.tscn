@@ -13,7 +13,7 @@ point_count = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pxyys"]
 shader = ExtResource("5_pxyys")
-shader_parameter/outline_width = 0.010000000475
+shader_parameter/outline_width = 0.0050000002375
 shader_parameter/outline_tint = Color(0.0253638, 0.0253638, 0.025363795, 1)
 shader_parameter/atlas_region_pos = Vector2(0, 0)
 shader_parameter/atlas_region_size = Vector2(1, 1)
@@ -42,12 +42,9 @@ position = Vector2(180, 186)
 texture = ExtResource("5_gnsy3")
 hframes = 2
 vframes = 4
-frame = 1
-region_enabled = true
-region_rect = Rect2(10, 40, 500, 1000)
+frame = 2
 
 [node name="PlayerHUD" parent="." unique_id=1184330613 instance=ExtResource("6_pxyys")]
-offset_left = 368.0
-offset_right = 833.00037
+offset_right = 465.00037
 offset_bottom = 100.0
-scale = Vector2(-0.7, 0.7)
+scale = Vector2(0.7, 0.7)
