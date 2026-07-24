@@ -1,7 +1,6 @@
 extends Node2D
 class_name BattleScene
 
-signal round_time_tick(tick:float)
 signal round_start
 
 enum BATTLE_STATE {Battle_Start, Pre_Round, Duel, Post_Round, Battle_End}
