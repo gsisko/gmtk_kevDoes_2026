@@ -3,23 +3,12 @@
 [ext_resource type="Script" uid="uid://dmp4w8g1glyp0" path="res://Player/player_character.gd" id="1_pj2h1"]
 [ext_resource type="Script" uid="uid://b4lyw8i3tfn2g" path="res://Scripts/Components/healthComponent.gd" id="2_1gtpu"]
 [ext_resource type="Script" uid="uid://b0vx0lr5bpl75" path="res://Scripts/Components/DamageComponent.gd" id="3_jdwmw"]
-[ext_resource type="Shader" uid="uid://dp4hiwuvbj7o6" path="res://Assets/Shaders/outline.gdshader" id="4_05ndu"]
 [ext_resource type="Shader" uid="uid://5lfllxse1774" path="res://Assets/Shaders/2d_outline_Shader.gdshader" id="5_pxyys"]
 [ext_resource type="Texture2D" uid="uid://bruru5uwmsgl1" path="res://Assets/Character_Sprites/Placeholder_sprite_sheet.png" id="6_gnsy3"]
 
 [sub_resource type="Curve" id="Curve_jdwmw"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gnsy3"]
-render_priority = 0
-shader = ExtResource("4_05ndu")
-shader_parameter/color = Color(0, 0, 0, 1)
-shader_parameter/thickness = 0.0
-shader_parameter/use_billboard = false
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_pxyys"]
-viewport_path = NodePath("Sprite3D/SubViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pxyys"]
 shader = ExtResource("5_pxyys")
@@ -29,7 +18,7 @@ shader_parameter/atlas_region_pos = Vector2(0, 0)
 shader_parameter/atlas_region_size = Vector2(1, 1)
 shader_parameter/draw_size = Vector2(1, 1)
 
-[node name="PlayerCharacter" type="Node3D" unique_id=421438093]
+[node name="PlayerCharacter" type="Node2D" unique_id=1662879574]
 script = ExtResource("1_pj2h1")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1242814886]
@@ -45,21 +34,8 @@ debug = true
 _damage_curve = SubResource("Curve_jdwmw")
 metadata/_custom_type_script = "uid://b0vx0lr5bpl75"
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1184020611]
-material_overlay = SubResource("ShaderMaterial_gnsy3")
-cast_shadow = 0
-lod_bias = 0.001
-gi_lightmap_texel_scale = 0.0446
-texture_filter = 1
-texture = SubResource("ViewportTexture_pxyys")
-
-[node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=1080025832]
-transparent_bg = true
-size = Vector2i(164, 225)
-
-[node name="Sprite2D" type="Sprite2D" parent="Sprite3D/SubViewport" unique_id=846369118]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=846369118]
 material = SubResource("ShaderMaterial_pxyys")
 texture = ExtResource("6_gnsy3")
-centered = false
 hframes = 2
 vframes = 5

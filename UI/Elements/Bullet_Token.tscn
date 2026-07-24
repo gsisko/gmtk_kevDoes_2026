@@ -7,8 +7,8 @@
 custom_minimum_size = Vector2(45, 45)
 layout_mode = 3
 anchors_preset = 0
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_2ir43")
 _active_color = Color(1, 1, 1, 1)
 _deactive_color = Color(0.27058825, 0.27058825, 0.27058825, 0.7607843)

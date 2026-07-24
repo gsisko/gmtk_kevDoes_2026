@@ -1,8 +1,9 @@
 @tool
-extends Node3D
+extends Node2D
 class_name PlayerCharacter
 
 signal attacked
+signal bullet_amount_update()
 
 enum PLAYER_STATE {IDLE, HIT, ATTACK, DEAD}
 @export var _state:PLAYER_STATE = PLAYER_STATE.IDLE :
@@ -22,9 +23,12 @@ var _anim_row_anchor:Dictionary[PLAYER_STATE, int] = {
 @export var target:PlayerCharacter
 @export var max_shots:int = 6
 
-var curr_shots:int = 6
+var curr_shots:int = 6 : 
+	set(update):
+		curr_shots = clampi(update, 0, max_shots)
+		bullet_amount_update.emit()
 
-@onready var _sprite:Sprite2D = $Sprite3D/SubViewport/Sprite2D
+@onready var _sprite:Sprite2D = $Sprite2D
 @export_group("Sprite Settings","_sprite")
 @export var _sprite_show_back:bool = false :
 	set(update):
@@ -74,6 +78,7 @@ func _on_state_enter():
 func _process_state(): pass
 func _on_state_exit(): pass
 #endregion
+
 func get_ammo_count()->int: return curr_shots
 func is_dead()->bool: return _state == PLAYER_STATE.DEAD
 

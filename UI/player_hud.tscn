@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://da8cl8sh2v00f" path="res://UI/Elements/Health_Bar.tscn" id="2_dpci0"]
 [ext_resource type="PackedScene" uid="uid://r7ujaad7030v" path="res://UI/Elements/Bullet_Token.tscn" id="3_dpci0"]
 
-[node name="PlayerHUD" type="Control" unique_id=1184330613]
+[node name="PlayerHUD" type="Control" unique_id=1184330613 node_paths=PackedStringArray("_ammo_tokens")]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 3
 anchors_preset = 15
@@ -15,6 +15,7 @@ grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_5o0p8")
+_ammo_tokens = [NodePath("VBoxContainer/MarginContainer/ammo_root/BulletToken6"), NodePath("VBoxContainer/MarginContainer/ammo_root/BulletToken5"), NodePath("VBoxContainer/MarginContainer/ammo_root/BulletToken4"), NodePath("VBoxContainer/MarginContainer/ammo_root/BulletToken3"), NodePath("VBoxContainer/MarginContainer/ammo_root/BulletToken2"), NodePath("VBoxContainer/MarginContainer/ammo_root/BulletToken")]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=114556337]
 layout_mode = 1
@@ -35,8 +36,8 @@ theme_override_constants/margin_right = 120
 
 [node name="ammo_root" type="VBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=1119459592]
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 0
-alignment = 2
 
 [node name="BulletToken" parent="VBoxContainer/MarginContainer/ammo_root" unique_id=1707165111 instance=ExtResource("3_dpci0")]
 layout_mode = 2

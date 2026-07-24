@@ -1,4 +1,4 @@
-extends Node3D
+extends Node2D
 class_name BattleScene
 
 signal round_time_tick(tick:float)
@@ -14,7 +14,7 @@ var state:BATTLE_STATE = BATTLE_STATE.Battle_Start :
 		_on_enter_state()
 
 @onready var players:Array[PlayerCharacter] = [$PlayerCharacter, $PlayerCharacter2]
-@onready var camera:Camera3D = $Camera3D
+@onready var camera:Camera2D = $Camera2D
 
 @export var round_length_sec:float = 5
 @onready var round_timer:Timer = $Timer
@@ -37,11 +37,10 @@ func _ready() -> void:
 	
 	#enter initial state
 	_on_enter_state()
-
 func _process(_delta: float) -> void: 
 	_process_state()
 
-func get_camera()->Camera3D: return camera
+func get_camera()->Camera2D: return camera
 
 func start_battle():
 	state = BATTLE_STATE.Battle_Start
