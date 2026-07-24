@@ -5,7 +5,7 @@ class_name PlayerHUD
 
 var _player: PlayerCharacter
 
-@onready var _hp_bar:Health_Bar = $VBoxContainer/HealthBar
+@onready var _hp_bar:Health_Bar = $HBoxContainer/VBoxContainer/HealthBar
 
 func sync_to_player(player: PlayerCharacter):
 	_player = player

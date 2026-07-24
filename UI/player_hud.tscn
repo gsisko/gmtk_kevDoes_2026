@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cdhs2gnfiawt0" path="res://UI/player_hud.gd" id="1_5o0p8"]
 [ext_resource type="PackedScene" uid="uid://da8cl8sh2v00f" path="res://UI/Elements/Health_Bar.tscn" id="2_dpci0"]
 [ext_resource type="PackedScene" uid="uid://r7ujaad7030v" path="res://UI/Elements/Bullet_Token.tscn" id="3_dpci0"]
+[ext_resource type="Texture2D" uid="uid://cpvnx5ugt5gcb" path="res://Assets/Textures/Bullet/Inside_barrel_gun.png" id="3_lhy1a"]
 
 [node name="PlayerHUD" type="Control" unique_id=1184330613 node_paths=PackedStringArray("_ammo_tokens")]
 custom_minimum_size = Vector2(0, 100)
@@ -13,30 +14,32 @@ grow_horizontal = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_5o0p8")
-_ammo_tokens = [NodePath("Chamber/BulletToken6"), NodePath("Chamber/BulletToken5"), NodePath("Chamber/BulletToken4"), NodePath("Chamber/BulletToken3"), NodePath("Chamber/BulletToken2"), NodePath("Chamber/BulletToken")]
+_ammo_tokens = [NodePath("HBoxContainer/Control/Chamber/BulletToken6"), NodePath("HBoxContainer/Control/Chamber/BulletToken5"), NodePath("HBoxContainer/Control/Chamber/BulletToken4"), NodePath("HBoxContainer/Control/Chamber/BulletToken3"), NodePath("HBoxContainer/Control/Chamber/BulletToken2"), NodePath("HBoxContainer/Control/Chamber/BulletToken")]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=114556337]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1147082412]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 68.0
 grow_horizontal = 2
-alignment = 1
+theme_override_constants/separation = 0
 
-[node name="HealthBar" parent="VBoxContainer" unique_id=175721822 instance=ExtResource("2_dpci0")]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1292730854]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_right = 120
-
-[node name="ammo_root" type="VBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=1119459592]
+[node name="Control" type="Control" parent="HBoxContainer" unique_id=1723012489]
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
 
-[node name="Chamber" type="Control" parent="." unique_id=1046510841]
+[node name="Chamber_Bg" type="TextureRect" parent="HBoxContainer/Control" unique_id=296626784]
+layout_mode = 0
+offset_left = -42.0
+offset_right = 158.0
+offset_bottom = 150.0
+scale = Vector2(1.2799997, 1.2799997)
+texture = ExtResource("3_lhy1a")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Chamber" type="Control" parent="HBoxContainer/Control" unique_id=1046510841]
 custom_minimum_size = Vector2(118, 118)
 anchors_preset = 0
 offset_left = 4.0
@@ -44,86 +47,105 @@ offset_top = 1.0
 offset_right = 122.0
 offset_bottom = 119.0
 
-[node name="BulletToken" parent="Chamber" unique_id=1707165111 instance=ExtResource("3_dpci0")]
+[node name="BulletToken" parent="HBoxContainer/Control/Chamber" unique_id=1707165111 instance=ExtResource("3_dpci0")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -40.81
-offset_top = -59.485
-offset_right = 1.1899986
-offset_bottom = -17.485
+offset_left = 4.0
+offset_top = -44.0
+offset_right = 46.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BulletToken2" parent="Chamber" unique_id=1021531550 instance=ExtResource("3_dpci0")]
+[node name="BulletToken2" parent="HBoxContainer/Control/Chamber" unique_id=1021531550 instance=ExtResource("3_dpci0")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 1.1899834
-offset_top = -59.485
-offset_right = 43.189983
-offset_bottom = -17.485
+offset_left = 58.0
+offset_top = -10.0
+offset_right = 100.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BulletToken3" parent="Chamber" unique_id=1166695444 instance=ExtResource("3_dpci0")]
+[node name="BulletToken3" parent="HBoxContainer/Control/Chamber" unique_id=1166695444 instance=ExtResource("3_dpci0")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 18.189983
-offset_top = -21.485
-offset_right = 60.189983
-offset_bottom = 20.515
+offset_left = 53.0
+offset_top = 44.0
+offset_right = 95.0
+offset_bottom = 86.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BulletToken4" parent="Chamber" unique_id=1968592375 instance=ExtResource("3_dpci0")]
+[node name="BulletToken4" parent="HBoxContainer/Control/Chamber" unique_id=1968592375 instance=ExtResource("3_dpci0")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 1.1899834
-offset_top = 17.515
-offset_right = 43.189983
-offset_bottom = 59.515
+offset_left = -6.0
+offset_top = 73.0
+offset_right = 36.0
+offset_bottom = 115.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BulletToken5" parent="Chamber" unique_id=181447238 instance=ExtResource("3_dpci0")]
+[node name="BulletToken5" parent="HBoxContainer/Control/Chamber" unique_id=181447238 instance=ExtResource("3_dpci0")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -39.81
-offset_top = 17.515
-offset_right = 2.1899986
-offset_bottom = 59.515
+offset_left = -55.0
+offset_top = 33.0
+offset_right = -13.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BulletToken6" parent="Chamber" unique_id=2074362567 instance=ExtResource("3_dpci0")]
+[node name="BulletToken6" parent="HBoxContainer/Control/Chamber" unique_id=2074362567 instance=ExtResource("3_dpci0")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -58.81
-offset_top = -21.485
-offset_right = -16.810001
-offset_bottom = 20.515
+offset_left = -47.0
+offset_top = -23.0
+offset_right = -5.0
+offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=114556337]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+alignment = 1
+
+[node name="HealthBar" parent="HBoxContainer/VBoxContainer" unique_id=175721822 instance=ExtResource("2_dpci0")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer" unique_id=1292730854]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_right = 120
+
+[node name="ammo_root" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/MarginContainer" unique_id=1119459592]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
