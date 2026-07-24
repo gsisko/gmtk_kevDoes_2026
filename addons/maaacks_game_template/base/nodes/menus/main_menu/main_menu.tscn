@@ -14,6 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1")
+game_scene_path = "uid://crvotlhkaquu3"
 
 [node name="BackgroundTextureRect" type="TextureRect" parent="." unique_id=1025367827]
 layout_mode = 1
@@ -49,7 +50,7 @@ anchor_right = 1.0
 offset_bottom = 67.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 48
-text = "Minimal Game Template"
+text = "Project Draw"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("7_j7612")
@@ -164,6 +165,7 @@ offset_left = -150.0
 offset_top = -80.0
 offset_right = 150.0
 offset_bottom = 80.0
+ignore_siblings = false
 ui_cancel_closes = false
 title = "Exit Game?"
 text = "Really exit the game?"

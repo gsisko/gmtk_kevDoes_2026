@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dh4juxb1hquwx"]
+
+[ext_resource type="Shader" uid="uid://bnerpb8qamutm" path="res://Assets/Shaders/brushstrokes.gdshader" id="1_xh1sn"]
+[ext_resource type="Texture2D" uid="uid://dqhuouv2uuvcs" path="res://Assets/Shaders/Shader_Examples/Screenshot_20260723_192250.png" id="2_fxghu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ckgo"]
+shader = ExtResource("1_xh1sn")
+shader_parameter/alphaMod = 1.0
+shader_parameter/StrokeSize = 3.1790001510025
+shader_parameter/DepthMaskBase = 0.0
+shader_parameter/DepthMaskIntensity = 0.3
+
+[node name="HouseBrushstrokesScene" type="Node2D" unique_id=982134794]
+
+[node name="Screenshot20260723192250" type="Sprite2D" parent="." unique_id=611052487]
+material = SubResource("ShaderMaterial_7ckgo")
+position = Vector2(1290, 854)
+scale = Vector2(2.3688245, 2.6088436)
+texture = ExtResource("2_fxghu")
