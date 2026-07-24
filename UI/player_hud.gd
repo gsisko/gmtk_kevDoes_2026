@@ -1,12 +1,9 @@
 extends Control
 class_name PlayerHUD
 
-
 @export var _ammo_tokens: Array[AmmoToken] = []
 
-
 var _player: PlayerCharacter
-
 
 @onready var _hp_bar:Health_Bar = $VBoxContainer/HealthBar
 

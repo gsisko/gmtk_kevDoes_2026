@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://8xcq5smc7hw6"]
 
-[ext_resource type="Script" uid="uid://cdhs2gnfiawt0" path="res://player_hud.gd" id="1_5o0p8"]
+[ext_resource type="Script" uid="uid://cdhs2gnfiawt0" path="res://UI/player_hud.gd" id="1_5o0p8"]
 [ext_resource type="PackedScene" uid="uid://da8cl8sh2v00f" path="res://UI/Elements/Health_Bar.tscn" id="2_dpci0"]
 [ext_resource type="PackedScene" uid="uid://r7ujaad7030v" path="res://UI/Elements/Bullet_Token.tscn" id="3_dpci0"]
 

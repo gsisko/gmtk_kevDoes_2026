@@ -5,6 +5,7 @@
 
 [node name="BattleScene" type="Node2D" unique_id=2098616304]
 script = ExtResource("1_on2e4")
+round_length_sec = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=649053479]
 limit_left = 0
@@ -14,13 +15,11 @@ limit_bottom = 648
 
 [node name="Timer" type="Timer" parent="." unique_id=1345055870]
 
+[node name="PlayerCharacter2" parent="." unique_id=1464611680 node_paths=PackedStringArray("target") instance=ExtResource("1_sh5gb")]
+position = Vector2(734, 263)
+target = NodePath("../PlayerCharacter")
+
 [node name="PlayerCharacter" parent="." unique_id=421438093 node_paths=PackedStringArray("target") instance=ExtResource("1_sh5gb")]
-position = Vector2(401, 440)
+position = Vector2(358, 436)
 scale = Vector2(1.5, 1.5)
 target = NodePath("../PlayerCharacter2")
-_sprite_show_back = true
-
-[node name="PlayerCharacter2" parent="." unique_id=1464611680 node_paths=PackedStringArray("target") instance=ExtResource("1_sh5gb")]
-position = Vector2(731, 240)
-target = NodePath("../PlayerCharacter")
-_sprite_flipped = true
