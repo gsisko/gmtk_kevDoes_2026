@@ -40,7 +40,7 @@ material = SubResource("ShaderMaterial_pxyys")
 position = Vector2(180, 148)
 texture = ExtResource("6_gnsy3")
 hframes = 2
-vframes = 4
+vframes = 5
 
 [node name="PlayerHUD" parent="." unique_id=1184330613 instance=ExtResource("6_pxyys")]
 offset_right = 465.00037

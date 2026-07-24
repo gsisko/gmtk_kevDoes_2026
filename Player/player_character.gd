@@ -46,14 +46,14 @@ var curr_shots:int = 6 :
 var init_transform:Transform2D
 
 func _ready() -> void:
-	
 	##A bit hard coded but it makes it work... Hud can switch sides based on character perspective
 	if _sprite_show_back:
-		_p_hud.scale.x = -1* abs(_p_hud.scale.x)
-		_p_hud.position.x = 368.0 ## Hard-Coded
-	else: 
 		_p_hud.scale.x = abs(_p_hud.scale.x)
-		_p_hud.position.x = 0.0
+		_p_hud.position.x = 0.0 ## Hard-Coded :p
+	else: 
+		_p_hud.scale.x = -1* abs(_p_hud.scale.x)
+		_p_hud.position.x = 368.0 ## Hard-Coded :p
+		
 	
 	if Engine.is_editor_hint(): return
 	
@@ -61,6 +61,7 @@ func _ready() -> void:
 	GameManager.game_start.connect(reset)
 	_p_hud.sync_to_player(self)
 	health.health_depleted.connect(_handle_death)
+	health.lost_health.connect(_handle_health_lose)
 
 func _on_game_start():
 	if GameManager.battle_instance:
@@ -101,6 +102,9 @@ func _update_animation():
 	var perspective_id:int = 1 if _sprite_show_back else 0
 	_sprite.frame_coords = Vector2(perspective_id, _anim_row_anchor[_state])
 	_sprite.flip_h = _sprite_flipped
+func _handle_health_lose(_change:float, _current:float):
+	_state = PLAYER_STATE.HIT
+	
 func _handle_death():
 	_state = PLAYER_STATE.DEAD
 func _on_round_start(): _state = PLAYER_STATE.IDLE

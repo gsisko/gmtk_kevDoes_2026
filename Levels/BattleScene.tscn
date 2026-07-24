@@ -19,8 +19,10 @@ limit_bottom = 648
 position = Vector2(81, 335)
 scale = Vector2(1.2, 1.2)
 target = NodePath("../PlayerCharacter2")
+_sprite_show_back = true
+_sprite_flipped = true
 
 [node name="PlayerCharacter2" parent="." unique_id=1150977014 node_paths=PackedStringArray("target") instance=ExtResource("1_sh5gb")]
 position = Vector2(605, 136)
 target = NodePath("../PlayerCharacter")
-_sprite_show_back = true
+_sprite_flipped = true
