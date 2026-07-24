@@ -29,7 +29,6 @@ func _ready() -> void:
 	GameManager.game_start.connect(start_battle)
 	
 	GameManager.players = players
-	GameManager.hud.sync_players()
 	
 	camera.make_current()
 	round_timer.timeout.connect(end_round)

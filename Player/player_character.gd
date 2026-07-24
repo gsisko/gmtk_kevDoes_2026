@@ -41,11 +41,13 @@ var curr_shots:int = 6 :
 
 @onready var health:HealthComponent = $HealthComponent
 @onready var damage:DamageComponent = $DamageComponent
+@onready var _p_hud: PlayerHUD = $PlayerHUD
 
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	
 	GameManager.game_start.connect(reset)
+	_p_hud.sync_to_player(self)
 	health.health_depleted.connect(_handle_death)
 
 func _on_game_start():

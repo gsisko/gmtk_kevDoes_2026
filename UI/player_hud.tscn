@@ -15,7 +15,7 @@ grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_5o0p8")
-_ammo_tokens = [NodePath("VBoxContainer/MarginContainer/ammo_root/BulletToken6"), NodePath("VBoxContainer/MarginContainer/ammo_root/BulletToken5"), NodePath("VBoxContainer/MarginContainer/ammo_root/BulletToken4"), NodePath("VBoxContainer/MarginContainer/ammo_root/BulletToken3"), NodePath("VBoxContainer/MarginContainer/ammo_root/BulletToken2"), NodePath("VBoxContainer/MarginContainer/ammo_root/BulletToken")]
+_ammo_tokens = [NodePath("Chamber/BulletToken6"), NodePath("Chamber/BulletToken5"), NodePath("Chamber/BulletToken4"), NodePath("Chamber/BulletToken3"), NodePath("Chamber/BulletToken2"), NodePath("Chamber/BulletToken")]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=114556337]
 layout_mode = 1
@@ -39,20 +39,93 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="BulletToken" parent="VBoxContainer/MarginContainer/ammo_root" unique_id=1707165111 instance=ExtResource("3_dpci0")]
-layout_mode = 2
+[node name="Chamber" type="Control" parent="." unique_id=1046510841]
+custom_minimum_size = Vector2(118, 118)
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 118.0
+offset_bottom = 119.0
 
-[node name="BulletToken2" parent="VBoxContainer/MarginContainer/ammo_root" unique_id=1021531550 instance=ExtResource("3_dpci0")]
-layout_mode = 2
+[node name="BulletToken" parent="Chamber" unique_id=1707165111 instance=ExtResource("3_dpci0")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.81
+offset_top = -59.485
+offset_right = 1.1899986
+offset_bottom = -17.485
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="BulletToken3" parent="VBoxContainer/MarginContainer/ammo_root" unique_id=1166695444 instance=ExtResource("3_dpci0")]
-layout_mode = 2
+[node name="BulletToken2" parent="Chamber" unique_id=1021531550 instance=ExtResource("3_dpci0")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.1899834
+offset_top = -59.485
+offset_right = 43.189983
+offset_bottom = -17.485
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="BulletToken4" parent="VBoxContainer/MarginContainer/ammo_root" unique_id=1968592375 instance=ExtResource("3_dpci0")]
-layout_mode = 2
+[node name="BulletToken3" parent="Chamber" unique_id=1166695444 instance=ExtResource("3_dpci0")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.189983
+offset_top = -21.485
+offset_right = 60.189983
+offset_bottom = 20.515
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="BulletToken5" parent="VBoxContainer/MarginContainer/ammo_root" unique_id=181447238 instance=ExtResource("3_dpci0")]
-layout_mode = 2
+[node name="BulletToken4" parent="Chamber" unique_id=1968592375 instance=ExtResource("3_dpci0")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.1899834
+offset_top = 17.515
+offset_right = 43.189983
+offset_bottom = 59.515
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="BulletToken6" parent="VBoxContainer/MarginContainer/ammo_root" unique_id=2074362567 instance=ExtResource("3_dpci0")]
-layout_mode = 2
+[node name="BulletToken5" parent="Chamber" unique_id=181447238 instance=ExtResource("3_dpci0")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.81
+offset_top = 17.515
+offset_right = 2.1899986
+offset_bottom = 59.515
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BulletToken6" parent="Chamber" unique_id=2074362567 instance=ExtResource("3_dpci0")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.81
+offset_top = -21.485
+offset_right = -16.810001
+offset_bottom = 20.515
+grow_horizontal = 2
+grow_vertical = 2

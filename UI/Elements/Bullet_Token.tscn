@@ -4,9 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://ypyn5jonn4h7" path="res://Assets/Textures/Bullet/Bullet_bottom.png" id="1_mlvn1"]
 
 [node name="BulletToken" type="Control" unique_id=1707165111]
-custom_minimum_size = Vector2(45, 45)
+custom_minimum_size = Vector2(42, 42)
 layout_mode = 3
 anchors_preset = 0
+offset_left = -21.0
+offset_top = -21.0
+offset_right = 21.0
+offset_bottom = 21.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_2ir43")
@@ -21,5 +25,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_mlvn1")
-expand_mode = 2
-stretch_mode = 5
+expand_mode = 1
+stretch_mode = 4

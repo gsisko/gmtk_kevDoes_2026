@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dxldxqyggmyw1" path="res://UI/hud.gd" id="1_ijstf"]
 [ext_resource type="Texture2D" uid="uid://cnggjkdv1t3nr" path="res://Assets/Textures/Bars/Bar_white.png" id="2_4n7mi"]
-[ext_resource type="PackedScene" uid="uid://8xcq5smc7hw6" path="res://UI/player_hud.tscn" id="2_ijstf"]
+[ext_resource type="Texture2D" uid="uid://yybjslps80sk" path="res://Assets/Textures/Pocket_watch_colored.png" id="3_4n7mi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yixhe"]
 font_size = 48
@@ -36,29 +36,56 @@ size_flags_vertical = 0
 texture = ExtResource("2_4n7mi")
 region_rect = Rect2(40, 32, 731, 53)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1502218568]
-layout_mode = 2
-
-[node name="PlayerHUD" parent="MarginContainer/HBoxContainer" unique_id=1184330613 instance=ExtResource("2_ijstf")]
-custom_minimum_size = Vector2(0, 208.62)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-
-[node name="timer_txt" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1744849599]
+[node name="timer_txt" type="Label" parent="MarginContainer" unique_id=1744849599]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 offset_transform_enabled = true
+offset_transform_position = Vector2(0, 122.755)
 text = "000"
 label_settings = SubResource("LabelSettings_yixhe")
 horizontal_alignment = 1
 
-[node name="PlayerHUD2" parent="MarginContainer/HBoxContainer" unique_id=893847874 instance=ExtResource("2_ijstf")]
-custom_minimum_size = Vector2(0, 208.62)
+[node name="PocketWatchColored" type="Sprite2D" parent="MarginContainer" unique_id=1066439691]
+position = Vector2(571, 84)
+scale = Vector2(0.27999878, 0.27999878)
+texture = ExtResource("3_4n7mi")
+
+[node name="Round_Announcement" type="Control" parent="." unique_id=411020381]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Round_Announcement" unique_id=31799164]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -16
+alignment = 1
+
+[node name="Round_label" type="Label" parent="Round_Announcement/VBoxContainer" unique_id=1181916296]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-offset_transform_enabled = true
-offset_transform_scale = Vector2(-1, 1)
+theme_override_font_sizes/font_size = 64
+text = "Round"
+horizontal_alignment = 1
+
+[node name="Round_Value" type="Label" parent="Round_Announcement/VBoxContainer" unique_id=1499010827]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "000"
+horizontal_alignment = 1

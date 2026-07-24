@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://b0vx0lr5bpl75" path="res://Scripts/Components/DamageComponent.gd" id="3_jdwmw"]
 [ext_resource type="Texture2D" uid="uid://d2y2bchsm0k6" path="res://Assets/Character_Sprites/Test_Sprites/Mariidood_spritesheet_test.png" id="5_05ndu"]
 [ext_resource type="Shader" uid="uid://5lfllxse1774" path="res://Assets/Shaders/2d_outline_Shader.gdshader" id="5_pxyys"]
-[ext_resource type="Texture2D" uid="uid://bruru5uwmsgl1" path="res://Assets/Character_Sprites/Placeholder_sprite_sheet.png" id="6_gnsy3"]
+[ext_resource type="PackedScene" uid="uid://8xcq5smc7hw6" path="res://UI/player_hud.tscn" id="6_pxyys"]
 
 [sub_resource type="Curve" id="Curve_jdwmw"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -37,13 +37,14 @@ metadata/_custom_type_script = "uid://b0vx0lr5bpl75"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=846369118]
 material = SubResource("ShaderMaterial_pxyys")
-scale = Vector2(0.12, 0.12)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_05ndu")
 hframes = 2
 vframes = 4
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=2013632055]
-material = SubResource("ShaderMaterial_pxyys")
-texture = ExtResource("6_gnsy3")
-hframes = 2
-vframes = 4
+[node name="PlayerHUD" parent="." unique_id=1184330613 instance=ExtResource("6_pxyys")]
+offset_left = 181.00002
+offset_top = -163.0
+offset_right = 646.00006
+offset_bottom = -63.0
+scale = Vector2(-0.7, 0.7)
