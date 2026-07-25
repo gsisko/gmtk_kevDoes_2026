@@ -55,11 +55,14 @@ func get_time_distance_percentage():
 func _any_player_input()->bool:
 	return Input.is_action_just_pressed("P1_Attack") || Input.is_action_just_pressed("P2_Attack")
 
-func _get_healthiest_player() -> PlayerCharacter:
-	var result:PlayerCharacter
-
-	if players[0].health.curr_health >= players[1].health.curr_health: result = players[0]
-	else: result = players[1]
+##Gives order of players based on if they have more health or not
+func _players_by_health() -> Array[PlayerCharacter]:
+	var result:Array[PlayerCharacter]
+	
+	#HARD CODED BUT WORKS
+	if players[0].health.curr_health >= players[1].health.curr_health: 
+		result = [ players[0], players[1]]
+	else: result = [ players[1], players[0]]
 	
 	return result
 func _get_last_standing()->PlayerCharacter:
@@ -102,7 +105,9 @@ func _on_enter_state():
 			GameManager.ui.close_hud()
 			var victory:Control = UI.open_overlay(UI.OVERLAY.Victory)
 			if victory:
-				if victory is VictoryMenu: victory.set_winner(_get_healthiest_player().data)
+				if victory is VictoryMenu: 
+					victory.set_winner(_players_by_health()[0].data)
+					victory.set_loser(_players_by_health()[1].data)
 			# OPEN RESULT OVERLAY
 			queue_free()
 func _process_state():

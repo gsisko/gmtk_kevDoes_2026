@@ -8,13 +8,14 @@ class_name VictoryMenu
 
 @onready var charName:Label = %Char_Name
 @onready var _sprite: Sprite2D = %Sprite2D
-
+@onready var _poster:WantedPoster = $WantedPoster
 func _update_menu():
 	charName.text = _data.name
 	_sprite.texture = _data.sprite_sheet
 
 func set_winner(data:Character_Data): _data = data
-
+func set_loser(data:Character_Data): _poster.set_data(data)
+	
 func _on_rematch_btn_clicked() -> void:
 	print("rematch")
 	GameManager.start_game()

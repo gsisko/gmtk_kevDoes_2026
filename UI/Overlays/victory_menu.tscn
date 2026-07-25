@@ -153,10 +153,11 @@ _text = "Main Menu"
 
 [node name="WantedPoster" parent="." unique_id=928851056 instance=ExtResource("9_gaydm")]
 layout_mode = 0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 100.0
-offset_bottom = 200.0
+offset_left = 1047.0
+offset_top = 337.0
+offset_right = 1147.0
+offset_bottom = 537.0
+is_marked = true
 
 [connection signal="pressed" from="HBoxContainer/RematchBtn" to="." method="_on_rematch_btn_clicked"]
 [connection signal="pressed" from="HBoxContainer/MenuBtn" to="." method="_on_menu_btn_clicked"]

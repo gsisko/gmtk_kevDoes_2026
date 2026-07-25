@@ -7,7 +7,7 @@ enum GAMEMODE {MENU, BATTLE, VICTORY}
 var mode:GAMEMODE = GAMEMODE.MENU
 
 var main_root: Node
-var main_menu_scene: PackedScene = preload("uid://c6k5nnpbypshi")
+var main_menu_scene: PackedScene = preload("uid://byvydukidk6i2")
 
 var battle_instance:BattleScene
 var ui:UI

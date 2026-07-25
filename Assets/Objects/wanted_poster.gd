@@ -1,24 +1,20 @@
-@tool
 extends TextureRect
+class_name WantedPoster
 
 @onready var portrait:TextureRect = %Portrait
-@onready var holes:TextureRect = $Holes
-@export var is_marked: bool = false :
-	set(update):
-		is_marked = update
-		if holes.visible && !is_marked:
-			holes.hide()
-		elif !holes.visible && is_marked:
-			holes.show() 
-		
-		
+@onready var holes:Control = %Holes
 
-@export var _data:Character_Data : 
-	set(update):
-		_data = update
+@export var is_marked: bool = false
+@export var _data:Character_Data
+
+func _ready() -> void:
+	_update_display()
 
 func set_data(data:Character_Data):
 	_data = data
-func _update_data():
-	if !_data:return
-	portrait.texture = _data.portrait
+	_update_display()
+	
+func _update_display():
+	if _data: portrait.texture = _data.portrait
+	if holes.visible && !is_marked: holes.hide()
+	elif !holes.visible && is_marked: holes.show() 

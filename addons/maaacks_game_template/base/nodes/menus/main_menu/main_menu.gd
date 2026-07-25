@@ -7,6 +7,13 @@ signal sub_menu_closed
 signal game_started
 signal game_exited
 
+@export_group("Background", "_bg")
+@export var _bg_idle_texture:Texture
+@export var _bg_play_texture:Texture
+@export var _bg_anim_length:float
+@onready var bg_node:TextureRect = %BackgroundTextureRect
+@onready var _anim:AnimationPlayer = $AnimationPlayer
+
 ## Defines the path to the game scene. Hides the play button if empty.
 @export_file("*.tscn") var game_scene_path : String
 ## The scene to open when a player clicks the 'Options' button.
@@ -113,8 +120,23 @@ func _ready() -> void:
 	_hide_options_if_unset()
 	_hide_credits_if_unset()
 	_hide_new_game_if_unset()
+	
+	#Set BG
+	if bg_node: bg_node.texture = _bg_idle_texture
+	
 
 func _on_new_game_button_pressed() -> void:
+	if bg_node: bg_node.texture = _bg_play_texture
+	if _anim: 
+		_anim.play("flash")
+		await get_tree().create_timer(_anim.current_animation_length).timeout
+		
+	await get_tree().create_timer(_bg_anim_length).timeout
+	
+	if _anim: 
+		_anim.play("black_fade")
+		await get_tree().create_timer(_anim.current_animation_length).timeout
+
 	new_game()
 
 func _on_options_button_pressed() -> void:
