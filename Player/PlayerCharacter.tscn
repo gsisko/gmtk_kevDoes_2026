@@ -6,75 +6,43 @@
 [ext_resource type="Texture2D" uid="uid://nn3odlmbabbw" path="res://Assets/Character_Sprites/Crow/crow_spritesheet_512.png" id="5_gnsy3"]
 [ext_resource type="Shader" uid="uid://5lfllxse1774" path="res://Assets/Shaders/2d_outline_Shader.gdshader" id="5_pxyys"]
 [ext_resource type="PackedScene" uid="uid://8xcq5smc7hw6" path="res://UI/player_hud.tscn" id="6_pxyys"]
-[ext_resource type="Theme" uid="uid://d4ax05l1rqgnj" path="res://Resource/Themes/Battle_Theme.tres" id="7_gnsy3"]
+[ext_resource type="PackedScene" uid="uid://bi1ut0qfho8q2" path="res://UI/Elements/dmg_counter.tscn" id="7_gnsy3"]
 
 [sub_resource type="Animation" id="Animation_gnsy3"]
-resource_name = "Damage_Counter_Tick"
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:offset_transform_position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.1, -42),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:offset_transform_position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.033333335, -144, -32, -0.36666667, 21, 0, 0),
-"times": PackedFloat32Array(0, 0.5)
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.06666666, 0.8333333, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_nn7gb"]
 length = 0.001
-tracks/0/type = "bezier"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:offset_transform_position:x")
+tracks/0/path = NodePath("Sprite2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_nn7gb"]
+resource_name = "sprite_bounce"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 0.5176325, 4.756827),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.4, 0.6), Vector2(0.5, 0.5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6f781"]
 _data = {
-&"Damage_Counter_Tick": SubResource("Animation_gnsy3"),
-&"RESET": SubResource("Animation_nn7gb")
+&"RESET": SubResource("Animation_gnsy3"),
+&"sprite_bounce": SubResource("Animation_nn7gb")
 }
 
 [sub_resource type="Curve" id="Curve_jdwmw"]
@@ -93,8 +61,7 @@ shader_parameter/draw_size = Vector2(4, 4)
 script = ExtResource("1_pj2h1")
 _sprite_show_back = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=477135682]
-root_node = NodePath("../Dmg_Counter")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=410961873]
 libraries/ = SubResource("AnimationLibrary_6f781")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1242814886]
@@ -119,20 +86,9 @@ hframes = 2
 vframes = 4
 frame = 1
 
-[node name="PlayerHUD" parent="." unique_id=1184330613 node_paths=PackedStringArray("_ammo_tokens") instance=ExtResource("6_pxyys")]
+[node name="PlayerHUD" parent="." unique_id=1184330613 instance=ExtResource("6_pxyys")]
 custom_minimum_size = Vector2(783.365, 100)
 offset_right = 783.365
 scale = Vector2(0.4199976, 0.4199976)
-_ammo_tokens = []
 
-[node name="Dmg_Counter" type="Label" parent="." unique_id=29147716]
-modulate = Color(1, 1, 1, 0)
-offset_left = 79.0
-offset_top = 92.0
-offset_right = 189.0
-offset_bottom = 180.0
-offset_transform_enabled = true
-theme = ExtResource("7_gnsy3")
-text = "234"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Dmg_Counter" parent="." unique_id=912656108 instance=ExtResource("7_gnsy3")]

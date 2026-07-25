@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://bi1ut0qfho8q2"]
+
+[ext_resource type="Theme" uid="uid://d4ax05l1rqgnj" path="res://Resource/Themes/Battle_Theme.tres" id="1_v24ou"]
+[ext_resource type="Script" uid="uid://c7ae1a03iph0h" path="res://UI/Elements/dmg_counter.gd" id="2_adaso"]
+
+[sub_resource type="Animation" id="Animation_adaso"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, -100)]
+}
+
+[sub_resource type="Animation" id="Animation_lkl82"]
+resource_name = "show"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset_transform_position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.033333335, -184, -16, -0.3333333, -14, 0, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.03333334, 0.73333335, 1),
+"transitions": PackedFloat32Array(0.15932018, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, -100), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e41nx"]
+_data = {
+&"RESET": SubResource("Animation_adaso"),
+&"show": SubResource("Animation_lkl82")
+}
+
+[node name="Dmg_Counter" type="Label" unique_id=912656108]
+modulate = Color(1, 1, 1, -100)
+offset_left = 79.0
+offset_top = 92.0
+offset_right = 189.0
+offset_bottom = 180.0
+offset_transform_enabled = true
+theme = ExtResource("1_v24ou")
+text = "234"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_adaso")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2113797638]
+libraries/ = SubResource("AnimationLibrary_e41nx")

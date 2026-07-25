@@ -15,7 +15,7 @@ grow_horizontal = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_5o0p8")
-_ammo_tokens = [NodePath("HBoxContainer/Control/Chamber/BulletToken6"), NodePath("HBoxContainer/Control/Chamber/BulletToken5"), NodePath("HBoxContainer/Control/Chamber/BulletToken4"), NodePath("HBoxContainer/Control/Chamber/BulletToken3"), NodePath("HBoxContainer/Control/Chamber/BulletToken2"), NodePath("HBoxContainer/Control/Chamber/BulletToken")]
+_ammo_tokens = [NodePath("HBoxContainer/Control/Chamber/BulletToken"), NodePath("HBoxContainer/Control/Chamber/BulletToken2"), NodePath("HBoxContainer/Control/Chamber/BulletToken3"), NodePath("HBoxContainer/Control/Chamber/BulletToken4"), NodePath("HBoxContainer/Control/Chamber/BulletToken5"), NodePath("HBoxContainer/Control/Chamber/BulletToken6")]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1147082412]
 layout_mode = 1

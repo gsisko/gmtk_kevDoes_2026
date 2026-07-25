@@ -31,7 +31,8 @@ func _ready() -> void:
 	
 	camera.make_current()
 	round_timer.timeout.connect(end_round)
-	
+	for i in players:
+		i.dead.connect(end_battle)
 	
 	#enter initial state
 	_on_enter_state()
@@ -44,6 +45,7 @@ func start_battle():
 	state = BATTLE_STATE.Battle_Start
 	
 func end_battle():
+	if !round_timer.is_stopped(): round_timer.stop()
 	state = BATTLE_STATE.Battle_End
 func begin_round(): 
 	state = BATTLE_STATE.Duel
@@ -60,7 +62,6 @@ func _on_enter_state():
 			for i in players: 
 				i.reset()
 			battle_round = 1
-			
 		BATTLE_STATE.Duel: 
 			round_timer.start(round_length_sec)
 			round_start.emit()
@@ -82,6 +83,8 @@ func _on_enter_state():
 					#Open gate if one player is out of ammo, End Battle if Both are out
 					if !amount_out_gate: amount_out_gate = true 
 					else: end_battle() 
+		BATTLE_STATE.Battle_End: pass
+			# OPEN RESULT OVERLAY
 func _process_state():
 	match state:
 		BATTLE_STATE.Battle_Start: 	if _any_player_input(): state = BATTLE_STATE.Pre_Round
@@ -96,7 +99,6 @@ func _process_state():
 				if state == BATTLE_STATE.Duel: ## Is dueling still (Win Condition not met)
 					end_round()
 		BATTLE_STATE.Post_Round: if _any_player_input(): state = BATTLE_STATE.Pre_Round
-		BATTLE_STATE.Battle_End: if _any_player_input(): start_battle()
 func _on_exit_state():
 	print("EXITING - %s" %[BATTLE_STATE.keys()[state]])
 #endregion
