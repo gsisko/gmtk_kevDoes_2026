@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://c2hu05m6y60b5"]
+
+[ext_resource type="Texture2D" uid="uid://cnhmiwchlpghb" path="res://Assets/Textures/Wanted poster.png" id="1_ty1j2"]
+[ext_resource type="Script" uid="uid://bubownsdb1yvs" path="res://Assets/Objects/wanted_poster.gd" id="2_y4bxq"]
+[ext_resource type="Texture2D" uid="uid://ylbpgwjj81j3" path="res://Assets/Character_Sprites/Crow/Greg Cole_portrait.png" id="2_ytruu"]
+[ext_resource type="Texture2D" uid="uid://bqg0pxdtna44j" path="res://Assets/Textures/Hole.png" id="4_y4bxq"]
+
+[node name="WantedPoster" type="TextureRect" unique_id=928851056]
+custom_minimum_size = Vector2(100, 200)
+offset_right = 100.0
+offset_bottom = 200.0
+texture = ExtResource("1_ty1j2")
+expand_mode = 1
+script = ExtResource("2_y4bxq")
+
+[node name="Holes" type="Control" parent="." unique_id=766691206]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hole" type="TextureRect" parent="Holes" unique_id=661608725]
+layout_mode = 0
+offset_left = 5.9999995
+offset_top = 49.0
+offset_right = 46.0
+offset_bottom = 89.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_y4bxq")
+expand_mode = 1
+
+[node name="Hole2" type="TextureRect" parent="Holes" unique_id=1055997168]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 100.0
+offset_right = 92.0
+offset_bottom = 140.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_y4bxq")
+expand_mode = 1
+
+[node name="Hole3" type="TextureRect" parent="Holes" unique_id=1686238968]
+layout_mode = 0
+offset_left = 57.999996
+offset_top = 36.0
+offset_right = 98.0
+offset_bottom = 76.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_y4bxq")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1139482813]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 47
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 97
+
+[node name="Portrait" type="TextureRect" parent="MarginContainer" unique_id=1496021624]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_ytruu")
+expand_mode = 1

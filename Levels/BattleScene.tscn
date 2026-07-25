@@ -25,8 +25,7 @@ texture = ExtResource("2_gmxsy")
 [node name="Timer" type="Timer" parent="." unique_id=1345055870]
 
 [node name="PlayerCharacter" parent="." unique_id=1662879574 node_paths=PackedStringArray("target") instance=ExtResource("1_sh5gb")]
-position = Vector2(134, 297)
-scale = Vector2(1.2, 1.2)
+position = Vector2(134, 362)
 target = NodePath("../PlayerCharacter2")
 data = ExtResource("4_vmwxm")
 

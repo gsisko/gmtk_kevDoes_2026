@@ -51,8 +51,8 @@ point_count = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pxyys"]
 shader = ExtResource("5_pxyys")
-shader_parameter/outline_width = 0.002000000095
-shader_parameter/outline_tint = Color(0.023529412, 0.023529412, 0.023529412, 0.3372549)
+shader_parameter/outline_width = 0.0050000002375
+shader_parameter/outline_tint = Color(0.023529412, 0.023529412, 0.023529412, 0.6156863)
 shader_parameter/atlas_region_pos = Vector2(0, 0)
 shader_parameter/atlas_region_size = Vector2(1, 1)
 shader_parameter/draw_size = Vector2(4, 4)

@@ -8,6 +8,7 @@
 [ext_resource type="Shader" uid="uid://5lfllxse1774" path="res://Assets/Shaders/2d_outline_Shader.gdshader" id="6_7p3or"]
 [ext_resource type="Texture2D" uid="uid://dn6g8bswk5jos" path="res://Assets/Character_Sprites/gun guy/Marii_spritesheet.png" id="7_uny4v"]
 [ext_resource type="PackedScene" uid="uid://b0jnpiigps2so" path="res://UI/Elements/Buttons/Menu Button.tscn" id="8_uny4v"]
+[ext_resource type="PackedScene" uid="uid://c2hu05m6y60b5" path="res://Assets/Objects/wanted_poster.tscn" id="9_gaydm"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_worf8"]
 viewport_path = NodePath("CharPortrait/SubViewport")
@@ -149,6 +150,13 @@ _text = "Rematch"
 [node name="MenuBtn" parent="HBoxContainer" unique_id=1277973668 instance=ExtResource("8_uny4v")]
 layout_mode = 2
 _text = "Main Menu"
+
+[node name="WantedPoster" parent="." unique_id=928851056 instance=ExtResource("9_gaydm")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 100.0
+offset_bottom = 200.0
 
 [connection signal="pressed" from="HBoxContainer/RematchBtn" to="." method="_on_rematch_btn_clicked"]
 [connection signal="pressed" from="HBoxContainer/MenuBtn" to="." method="_on_menu_btn_clicked"]

@@ -6,3 +6,5 @@ class_name Character_Data
 
 @export var sprite_sheet: Texture
 @export var sprite_scale: Vector2 = Vector2(0.5, 0.5)
+
+@export var portrait: Texture

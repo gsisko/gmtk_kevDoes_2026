@@ -12,7 +12,6 @@ This template has a main menu, options menus, pause menu, credits, extra tools, 
 [Featured Games](#featured-games)  
 
 ### Videos
-
 [![Quick Intro Video](https://img.youtube.com/vi/U9CB3vKINVw/hqdefault.jpg)](https://youtu.be/U9CB3vKINVw)  
 [More Videos](/addons/maaacks_game_template/docs/Videos.md)
 
