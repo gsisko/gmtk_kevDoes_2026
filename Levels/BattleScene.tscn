@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bls0ew4di1enc" path="res://Levels/battle_scene.gd" id="1_on2e4"]
 [ext_resource type="PackedScene" uid="uid://bkpemcvteg3tu" path="res://Player/PlayerCharacter.tscn" id="1_sh5gb"]
-[ext_resource type="Texture2D" uid="uid://cnnveutn2puku" path="res://Assets/Textures/Background_1.png" id="2_gmxsy"]
+[ext_resource type="Texture2D" uid="uid://cnnveutn2puku" path="res://Assets/Textures/Backgrounds/Background_1.png" id="2_gmxsy"]
+[ext_resource type="Resource" uid="uid://ba0cuevo0a61b" path="res://Resource/Characters/GreggCole.tres" id="4_vmwxm"]
+[ext_resource type="Resource" uid="uid://bgqo1mpgbioqo" path="res://Resource/Characters/Cowboy.tres" id="5_on0bi"]
 
 [node name="BattleScene" type="Node2D" unique_id=2098616304]
 script = ExtResource("1_on2e4")
@@ -26,8 +28,10 @@ texture = ExtResource("2_gmxsy")
 position = Vector2(134, 297)
 scale = Vector2(1.2, 1.2)
 target = NodePath("../PlayerCharacter2")
+data = ExtResource("4_vmwxm")
 
 [node name="PlayerCharacter2" parent="." unique_id=1150977014 node_paths=PackedStringArray("target") instance=ExtResource("1_sh5gb")]
 position = Vector2(658, 167)
 target = NodePath("../PlayerCharacter")
+data = ExtResource("5_on0bi")
 _sprite_show_back = false

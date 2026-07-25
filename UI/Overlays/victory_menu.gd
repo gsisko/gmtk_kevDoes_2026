@@ -15,11 +15,10 @@ func _update_menu():
 
 func set_winner(data:Character_Data): _data = data
 
-
 func _on_rematch_btn_clicked() -> void:
-	GameManager.battle_instance.start_battle()
-	
-
-
+	print("rematch")
+	GameManager.start_game()
+	queue_free()
 func _on_menu_btn_clicked() -> void:
-	pass # Replace with function body.
+	print("main_menu")
+	GameManager.main_menu()

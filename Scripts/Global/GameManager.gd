@@ -6,36 +6,26 @@ signal player_died(player:PlayerCharacter)
 enum GAMEMODE {MENU, BATTLE, VICTORY}
 var mode:GAMEMODE = GAMEMODE.MENU
 
+var main_root: Node
+var main_menu_scene: PackedScene = preload("uid://c6k5nnpbypshi")
+
 var battle_instance:BattleScene
 var ui:UI
 
-
-var players : Array[PlayerCharacter]:
-	set(update):
-		_remove_player_connections()
-		players = update
-		_add_player_connections()
-
-func _add_player_connections(): # Hook up UI ELEMENTS TO PLAYER
-	if players.is_empty(): return
-	for i in players:
-		if !i.health.health_update.is_connected(_on_health_update.bind(i)):
-			i.health.health_update.connect(_on_health_update.bind(i))
-		if !i.health.health_depleted.is_connected(emit_signal.bind("player_died", i)):
-			i.health.health_depleted.connect(emit_signal.bind("player_died", i))
-func _remove_player_connections():
-	if players.is_empty(): return
-	for i in players:
-		if i.health.health_update.is_connected(_on_health_update.bind(i)):
-			i.health.health_update.disconnect(_on_health_update.bind(i))
-		if i.health.health_depleted.is_connected(emit_signal.bind("player_died", i)):
-			i.health.health_depleted.disconnect(emit_signal.bind("player_died", i))
+var players
+var player_data : Array[Character_Data]
 
 #region DEBUG
 func _on_health_update(_change:float, current:float, player:PlayerCharacter): 
 	print("HEALTH UPDATE [%s]: %s" %[player.name, current])
 #endregion
 
+#RESET TO MAIN MENU
+func main_menu():
+	var menu: MainMenu = main_menu_scene.instantiate()
+	get_tree().root.add_child(menu)
+	if main_root: main_root.queue_free()
+	
 func start_game(): game_start.emit()
 func quit_game(): get_tree().quit()
 

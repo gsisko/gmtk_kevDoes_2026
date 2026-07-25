@@ -59,12 +59,12 @@ func _ready() -> void:
 	
 	if Engine.is_editor_hint(): return
 	
-	if data: _on_data_update()
+	
 	GameManager.game_start.connect(reset)
 	_p_hud.sync_to_player(self)
 	health.lost_health.connect(_handle_health_loss)
 	health.health_depleted.connect(_handle_death)
-	
+	if data: _on_data_update()
 
 func set_data(character_data:Character_Data): data = character_data
 
@@ -73,8 +73,8 @@ func _process(_delta: float) -> void:
 	_process_state()
 
 func attack():
-	_state = PLAYER_STATE.ATTACK
 	if curr_shots <= 0: return
+	_state = PLAYER_STATE.ATTACK
 	damage.deal_damage(target.health)
 	curr_shots -= 1
 	attacked.emit()
@@ -106,9 +106,6 @@ func _on_data_update():
 	if !_sprite: return
 	_sprite.texture = data.sprite_sheet
 	_sprite.scale = data.sprite_scale
-func _on_game_start():
-	if GameManager.battle_instance:
-		GameManager.battle_instance.round_start.connect(_on_round_start)
 
 func _update_animation():
 	if !_sprite: return
@@ -129,4 +126,3 @@ func _handle_health_loss(change:float, _current:float):
 func _handle_death():
 	_state = PLAYER_STATE.DEAD
 	dead.emit()
-func _on_round_start(): _state = PLAYER_STATE.IDLE

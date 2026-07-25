@@ -4,16 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://b6jrk0306gub7" path="res://Assets/Textures/Button/Idle_2.png" id="1_i6ibw"]
 [ext_resource type="Texture2D" uid="uid://cwihm7h8qrwsg" path="res://Assets/Textures/Button/Clicked.png" id="2_niso1"]
 [ext_resource type="Texture2D" uid="uid://w80ar7c5ug44" path="res://Assets/Textures/Button/Hover.png" id="3_2473e"]
-[ext_resource type="Theme" uid="uid://3yuyp6mwppmj" path="res://UI/Overlays/MenuTheme.tres" id="4_niso1"]
+[ext_resource type="Theme" uid="uid://3yuyp6mwppmj" path="res://Resource/Themes/MenuTheme.tres" id="4_niso1"]
 
-[node name="MenuButton" type="TextureButton" unique_id=1430065911]
+[node name="MenuButton" type="TextureButton" unique_id=1430065911 node_paths=PackedStringArray("_label")]
 custom_minimum_size = Vector2(200, 100)
+offset_right = 200.0
+offset_bottom = 100.0
 texture_normal = ExtResource("1_i6ibw")
 texture_pressed = ExtResource("2_niso1")
 texture_hover = ExtResource("3_2473e")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("1_2473e")
+_label = NodePath("Label")
+_text = "Button"
 
 [node name="Label" type="Label" parent="." unique_id=745738380]
 layout_mode = 1
@@ -29,6 +33,6 @@ offset_bottom = 22.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_niso1")
-text = "btn"
+text = "Button"
 horizontal_alignment = 1
 vertical_alignment = 1

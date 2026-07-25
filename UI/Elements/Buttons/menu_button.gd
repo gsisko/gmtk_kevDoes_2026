@@ -1,19 +1,21 @@
 @tool
 extends TextureButton
 
-signal clicked
-
-@onready var _label:Label = $Label
+@export var _label: Label
 
 @export var _text:String:
 	set(update): 
 		_text = update
-		_label.text = _text
+		_update_display()
 @export var _btn_size:Vector2 = Vector2(200, 100):
 	set(update):
 		_btn_size = update
-		size = _btn_size
+		_update_display()
 
 func _ready() -> void:
-	_text = _text
-	_btn_size = _btn_size
+	_update_display()
+
+func _update_display():
+	if !_label: return
+	_label.text = _text
+	size = _btn_size
