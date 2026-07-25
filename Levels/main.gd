@@ -2,11 +2,10 @@ extends CanvasLayer
 
 @onready var battle_scene:PackedScene = preload("uid://clyy8ub0nlhdm")
 @onready var level_root:Node2D = $Level_Root
-
-
-
+@onready var _ui_instance: UI = $UI
 
 func _ready() -> void:
+	GameManager.ui = _ui_instance
 	GameManager.game_start.connect(on_game_start)
 	GameManager.start_game()
 	

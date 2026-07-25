@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://r5booxbuuapv"]
+
+[ext_resource type="Script" uid="uid://djddjadv4a43r" path="res://UI/Overlays/victory_menu.gd" id="1_40fnx"]
+[ext_resource type="Texture2D" uid="uid://cpdqlir3yi8aw" path="res://Assets/Textures/Backgrounds/Background.png" id="2_worf8"]
+[ext_resource type="Theme" uid="uid://clhemy271v0j6" path="res://UI/Overlays/Action_Theme.tres" id="3_aq1jq"]
+[ext_resource type="Texture2D" uid="uid://3c2xc5qjabr8" path="res://Assets/Textures/Banner.png" id="5_oebv8"]
+[ext_resource type="Texture2D" uid="uid://b0nu7y6crb77" path="res://Assets/Textures/Star.png" id="5_worf8"]
+[ext_resource type="Shader" uid="uid://5lfllxse1774" path="res://Assets/Shaders/2d_outline_Shader.gdshader" id="6_7p3or"]
+[ext_resource type="Texture2D" uid="uid://dn6g8bswk5jos" path="res://Assets/Character_Sprites/gun guy/Marii_spritesheet.png" id="7_uny4v"]
+[ext_resource type="PackedScene" uid="uid://b0jnpiigps2so" path="res://UI/Elements/Buttons/Menu Button.tscn" id="8_uny4v"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_worf8"]
+viewport_path = NodePath("Background1/Banner/MarginContainer/HBoxContainer/Portrait/CharPortrait/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uny4v"]
+shader = ExtResource("6_7p3or")
+shader_parameter/outline_width = 0.0050000002375
+shader_parameter/outline_tint = Color(0.52156866, 0.45882353, 0.007843138, 1)
+shader_parameter/atlas_region_pos = Vector2(0, 0)
+shader_parameter/atlas_region_size = Vector2(1, 1)
+shader_parameter/draw_size = Vector2(1, 1)
+
+[node name="VictoryMenu" type="Control" unique_id=1296006520]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_40fnx")
+
+[node name="Background1" type="TextureRect" parent="." unique_id=246472709]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_worf8")
+
+[node name="Banner" type="TextureRect" parent="Background1" unique_id=2038894846]
+custom_minimum_size = Vector2(0, 500)
+clip_contents = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.71800417, 0.45842332)
+texture = ExtResource("5_oebv8")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Background1/Banner" unique_id=19133011]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background1/Banner/MarginContainer" unique_id=838361606]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background1/Banner/MarginContainer/HBoxContainer" unique_id=835679861]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Winner Label" type="Label" parent="Background1/Banner/MarginContainer/HBoxContainer/VBoxContainer" unique_id=563790246]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("3_aq1jq")
+text = "The Quickest Gun:"
+horizontal_alignment = 1
+
+[node name="Char_Name" type="Label" parent="Background1/Banner/MarginContainer/HBoxContainer/VBoxContainer" unique_id=726209469]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 64
+text = "Character"
+horizontal_alignment = 1
+
+[node name="Portrait" type="Control" parent="Background1/Banner/MarginContainer/HBoxContainer" unique_id=200030569]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_position = Vector2(-64, -64)
+
+[node name="TextureRect" type="TextureRect" parent="Background1/Banner/MarginContainer/HBoxContainer/Portrait" unique_id=1640134865]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_worf8")
+
+[node name="CharPortrait" type="TextureRect" parent="Background1/Banner/MarginContainer/HBoxContainer/Portrait" unique_id=168366456]
+custom_minimum_size = Vector2(256, 256)
+custom_maximum_size = Vector2(256, 256)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = SubResource("ViewportTexture_worf8")
+
+[node name="SubViewport" type="SubViewport" parent="Background1/Banner/MarginContainer/HBoxContainer/Portrait/CharPortrait" unique_id=1625368896]
+transparent_bg = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Background1/Banner/MarginContainer/HBoxContainer/Portrait/CharPortrait/SubViewport" unique_id=1081868190]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_uny4v")
+texture = ExtResource("7_uny4v")
+centered = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1049548287]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 243.0
+offset_right = 535.0
+offset_bottom = 343.0
+
+[node name="RematchBtn" parent="HBoxContainer" unique_id=1430065911 instance=ExtResource("8_uny4v")]
+layout_mode = 2
+_text = "Rematch"
+
+[node name="MenuBtn" parent="HBoxContainer" unique_id=1277973668 instance=ExtResource("8_uny4v")]
+layout_mode = 2
+_text = "Main Menu"
+
+[connection signal="clicked" from="HBoxContainer/RematchBtn" to="." method="_on_rematch_btn_clicked"]
+[connection signal="clicked" from="HBoxContainer/MenuBtn" to="." method="_on_menu_btn_clicked"]

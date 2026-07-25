@@ -4,9 +4,6 @@ class_name HUD
 
 @onready var timer_label:Label = %timer_txt
 
-func _ready() -> void:
-	GameManager.hud = self
-	
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint(): return
 	

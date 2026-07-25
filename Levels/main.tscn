@@ -2,11 +2,15 @@
 
 [ext_resource type="Script" uid="uid://cjbv01egm5ojf" path="res://Levels/main.gd" id="1_gnif3"]
 [ext_resource type="PackedScene" uid="uid://5rwv1cyyc5eg" path="res://UI/HUD.tscn" id="2_gnif3"]
+[ext_resource type="Script" uid="uid://cfq2f07sneh0o" path="res://Scripts/UI.gd" id="2_lwy2l"]
+[ext_resource type="PackedScene" uid="uid://r5booxbuuapv" path="res://UI/Overlays/victory_menu.tscn" id="4_7pswh"]
+[ext_resource type="PackedScene" uid="uid://clyy8ub0nlhdm" path="res://Levels/BattleScene.tscn" id="5_34bfm"]
 
 [node name="main" type="CanvasLayer" unique_id=1465137223]
 script = ExtResource("1_gnif3")
 
-[node name="UI" type="Control" parent="." unique_id=1641981175]
+[node name="UI" type="Control" parent="." unique_id=1641981175 node_paths=PackedStringArray("hud")]
+z_index = 99
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,8 +18,25 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+script = ExtResource("2_lwy2l")
+hud = NodePath("Hud")
 
 [node name="Hud" parent="UI" unique_id=1348445466 instance=ExtResource("2_gnif3")]
+visible = false
+layout_mode = 1
+
+[node name="Overlay_Root" type="Control" parent="UI" unique_id=2046885664]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VictoryMenu" parent="UI/Overlay_Root" unique_id=1296006520 instance=ExtResource("4_7pswh")]
+visible = false
 layout_mode = 1
 
 [node name="Level_Root" type="Node2D" parent="." unique_id=1514598297]
+
+[node name="BattleScene" parent="Level_Root" unique_id=2098616304 instance=ExtResource("5_34bfm")]

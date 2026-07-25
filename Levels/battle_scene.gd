@@ -26,6 +26,7 @@ func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	
 	GameManager.game_start.connect(start_battle)
+	GameManager.ui.hud.show()
 	
 	GameManager.players = players
 	
@@ -44,14 +45,20 @@ func get_camera()->Camera2D: return camera
 func start_battle():
 	state = BATTLE_STATE.Battle_Start
 	
-func end_battle():
-	if !round_timer.is_stopped(): round_timer.stop()
-	state = BATTLE_STATE.Battle_End
+func end_battle(): state = BATTLE_STATE.Battle_End
+	
 func begin_round(): 
 	state = BATTLE_STATE.Duel
 func end_round():
 	state = BATTLE_STATE.Post_Round
 
+func get_time_distance_percentage():
+	if round_timer.is_stopped(): return 0
+	var difference_sec: float = round_length_sec-round_timer.time_left
+	return (difference_sec/round_length_sec)
+	
+func _any_player_input()->bool:
+	return Input.is_action_just_pressed("P1_Attack") || Input.is_action_just_pressed("P2_Attack")
 #region BATTLE FSM
 func _on_enter_state():
 	if Engine.is_editor_hint():return
@@ -83,7 +90,10 @@ func _on_enter_state():
 					#Open gate if one player is out of ammo, End Battle if Both are out
 					if !amount_out_gate: amount_out_gate = true 
 					else: end_battle() 
-		BATTLE_STATE.Battle_End: pass
+		BATTLE_STATE.Battle_End: 
+			if !round_timer.is_stopped(): round_timer.stop()
+			GameManager.ui.hud.hide()
+			
 			# OPEN RESULT OVERLAY
 func _process_state():
 	match state:
@@ -102,10 +112,3 @@ func _process_state():
 func _on_exit_state():
 	print("EXITING - %s" %[BATTLE_STATE.keys()[state]])
 #endregion
-func get_time_distance_percentage():
-	if round_timer.is_stopped(): return 0
-	var difference_sec: float = round_length_sec-round_timer.time_left
-	return (difference_sec/round_length_sec)
-	
-func _any_player_input()->bool:
-	return Input.is_action_just_pressed("P1_Attack") || Input.is_action_just_pressed("P2_Attack")

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bls0ew4di1enc" path="res://Levels/battle_scene.gd" id="1_on2e4"]
 [ext_resource type="PackedScene" uid="uid://bkpemcvteg3tu" path="res://Player/PlayerCharacter.tscn" id="1_sh5gb"]
+[ext_resource type="Texture2D" uid="uid://cnnveutn2puku" path="res://Assets/Textures/Background_1.png" id="2_gmxsy"]
 
 [node name="BattleScene" type="Node2D" unique_id=2098616304]
 script = ExtResource("1_on2e4")
@@ -13,6 +14,11 @@ limit_top = 0
 limit_right = 1152
 limit_bottom = 648
 position_smoothing_enabled = true
+
+[node name="BG" type="TextureRect" parent="." unique_id=673685035]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_gmxsy")
 
 [node name="Timer" type="Timer" parent="." unique_id=1345055870]
 

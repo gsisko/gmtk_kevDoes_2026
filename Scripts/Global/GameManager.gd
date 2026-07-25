@@ -3,10 +3,11 @@ extends Node
 signal game_start
 signal player_died(player:PlayerCharacter)
 
-enum GAMEMODE {MENU, BATTLE}
+enum GAMEMODE {MENU, BATTLE, VICTORY}
+var mode:GAMEMODE = GAMEMODE.MENU
 
 var battle_instance:BattleScene
-var hud:HUD
+var ui:UI
 
 
 var players : Array[PlayerCharacter]:

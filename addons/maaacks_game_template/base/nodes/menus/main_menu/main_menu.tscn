@@ -50,7 +50,7 @@ anchor_right = 1.0
 offset_bottom = 67.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 48
-text = "Project Draw"
+text = "Quick Hip"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("7_j7612")
@@ -70,7 +70,7 @@ anchor_right = 1.0
 offset_bottom = 34.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 24
-text = "Subtitle"
+text = "Fastest Guns"
 horizontal_alignment = 1
 vertical_alignment = 1
 
