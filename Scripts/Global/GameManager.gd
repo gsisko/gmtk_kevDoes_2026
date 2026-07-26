@@ -9,6 +9,9 @@ var mode:GAMEMODE = GAMEMODE.MENU
 var main_root: Node
 var main_menu_scene: PackedScene = preload("uid://byvydukidk6i2")
 
+var BGM:AudioStreamPlayer
+var global_SFX
+
 var battle_instance:BattleScene
 var ui:UI
 
@@ -27,6 +30,7 @@ func main_menu():
 	if main_root: main_root.queue_free()
 	
 func start_game(): game_start.emit()
+
 func quit_game(): get_tree().quit()
 
 func get_battle_scene() -> BattleScene: return battle_instance

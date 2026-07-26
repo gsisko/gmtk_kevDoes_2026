@@ -10,6 +10,8 @@
 script = ExtResource("1_on2e4")
 round_length_sec = 10.0
 
+[node name="BGM" type="AudioStreamPlayer" parent="." unique_id=1643264637]
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=649053479]
 limit_left = 0
 limit_top = 0
@@ -18,6 +20,7 @@ limit_bottom = 648
 position_smoothing_enabled = true
 
 [node name="BG" type="TextureRect" parent="." unique_id=673685035]
+visible = false
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("2_gmxsy")

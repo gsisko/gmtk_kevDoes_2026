@@ -6,6 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://cdwurgxtl10dg" path="res://Assets/Textures/Backgrounds/Title screen 1 up.png" id="4_1wns4"]
 [ext_resource type="PackedScene" uid="uid://c5pfkjxskjc60" path="res://addons/maaacks_game_template/examples/scenes/windows/main_menu_credits_window.tscn" id="4_qhsni"]
 [ext_resource type="Texture2D" uid="uid://c8apsjculrwm6" path="res://Assets/Textures/Backgrounds/Title screen 1down.png" id="5_qhsni"]
+[ext_resource type="Script" uid="uid://d2pck80iorg5d" path="res://addons/maaacks_game_template/examples/scenes/menus/main_menu/bgm.gd" id="7_dsclc"]
+[ext_resource type="Script" uid="uid://bww8ppihsuk22" path="res://addons/maaacks_game_template/examples/scenes/menus/main_menu/ui.gd" id="8_i1y08"]
+[ext_resource type="Script" uid="uid://dnpbl1s7lvmvj" path="res://addons/maaacks_game_template/examples/scenes/menus/main_menu/sfx.gd" id="8_q1t3s"]
+
+[sub_resource type="AudioStream" id="AudioStream_q1t3s"]
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_i1y08"]
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_bhunq"]
 
 [sub_resource type="Animation" id="Animation_1wns4"]
 length = 0.001
@@ -63,13 +72,32 @@ _data = {
 script = ExtResource("2_lk0wa")
 _bg_idle_texture = ExtResource("5_qhsni")
 _bg_play_texture = ExtResource("4_1wns4")
+_bg_anim_length = 0.0
+_sfx_gunshot = null
 options_packed_scene = ExtResource("3_cfr4i")
 credits_packed_scene = ExtResource("4_qhsni")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0" unique_id=1460732131]
+[node name="BGM" type="AudioStreamPlayer" parent="." index="0" unique_id=1375114504]
+stream = SubResource("AudioStream_q1t3s")
+bus = &"BGM"
+script = ExtResource("7_dsclc")
+
+[node name="UI" type="AudioStreamPlayer" parent="." index="1" unique_id=2120923629]
+stream = SubResource("AudioStreamPolyphonic_i1y08")
+max_polyphony = 3
+bus = &"UI"
+script = ExtResource("8_i1y08")
+
+[node name="SFX" type="AudioStreamPlayer" parent="." index="2" unique_id=1564840376]
+stream = SubResource("AudioStreamPolyphonic_bhunq")
+max_polyphony = 3
+bus = &"SFX"
+script = ExtResource("8_q1t3s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3" unique_id=1460732131]
 libraries/ = SubResource("AnimationLibrary_dsclc")
 
-[node name="BackgroundTextureRect" parent="." index="1" unique_id=1025367827]
+[node name="BackgroundTextureRect" parent="." index="4" unique_id=1025367827]
 unique_name_in_owner = true
 texture = ExtResource("5_qhsni")
 
@@ -118,7 +146,7 @@ offset_transform_rotation = 0.08726646
 [node name="ExitButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="3" unique_id=261758567]
 offset_transform_enabled = true
 
-[node name="anim_rect" type="ColorRect" parent="." index="5" unique_id=600887885]
+[node name="anim_rect" type="ColorRect" parent="." index="8" unique_id=600887885]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

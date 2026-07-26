@@ -78,7 +78,6 @@ func _get_total_ammo() -> int:
 func _win_condition_met()->bool:
 	return _get_last_standing() != null || _get_total_ammo() <= 0
 
-
 #region BATTLE FSM
 func _on_enter_state():
 	if Engine.is_editor_hint():return
