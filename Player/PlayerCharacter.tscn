@@ -7,6 +7,7 @@
 [ext_resource type="Shader" uid="uid://5lfllxse1774" path="res://Assets/Shaders/2d_outline_Shader.gdshader" id="5_pxyys"]
 [ext_resource type="PackedScene" uid="uid://8xcq5smc7hw6" path="res://UI/player_hud.tscn" id="6_pxyys"]
 [ext_resource type="PackedScene" uid="uid://bi1ut0qfho8q2" path="res://UI/Elements/dmg_counter.tscn" id="7_gnsy3"]
+[ext_resource type="Texture2D" uid="uid://tpo7pp3of6aj" path="res://Assets/Textures/CrossHair.png" id="8_nn7gb"]
 
 [sub_resource type="Animation" id="Animation_gnsy3"]
 length = 0.001
@@ -87,8 +88,28 @@ vframes = 4
 frame = 1
 
 [node name="PlayerHUD" parent="." unique_id=1184330613 instance=ExtResource("6_pxyys")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(783.365, 100)
 offset_right = 783.365
 scale = Vector2(0.4199976, 0.4199976)
 
 [node name="Dmg_Counter" parent="." unique_id=912656108 instance=ExtResource("7_gnsy3")]
+
+[node name="TextureRect" type="TextureRect" parent="Dmg_Counter" unique_id=1111738779]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -21.0
+offset_right = -35.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_nn7gb")
+expand_mode = 1
+
+[node name="zoom_target" type="Marker2D" parent="." unique_id=1055984740]
+position = Vector2(184, 132)

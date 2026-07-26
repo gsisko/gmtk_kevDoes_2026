@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://r5booxbuuapv"]
 
 [ext_resource type="Script" uid="uid://djddjadv4a43r" path="res://UI/Overlays/victory_menu.gd" id="1_40fnx"]
+[ext_resource type="AudioStream" uid="uid://8btwmigj54us" path="res://Assets/Audio/sfx/ActualVictoryJingle.wav" id="2_oqv3y"]
 [ext_resource type="Texture2D" uid="uid://cpdqlir3yi8aw" path="res://Assets/Textures/Backgrounds/Background.png" id="2_worf8"]
 [ext_resource type="Theme" uid="uid://clhemy271v0j6" path="res://Resource/Themes/Action_Theme.tres" id="3_aq1jq"]
 [ext_resource type="AudioStream" uid="uid://cgoyr41di6fil" path="res://Assets/Audio/sfx/WindAmbienceLoop.wav" id="3_oqv3y"]
@@ -30,7 +31,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_40fnx")
-_bgm = ExtResource("3_oqv3y")
+_bgm = ExtResource("2_oqv3y")
 _wind = ExtResource("3_oqv3y")
 
 [node name="Background1" type="TextureRect" parent="." unique_id=246472709]

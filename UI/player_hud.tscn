@@ -141,7 +141,9 @@ size_flags_vertical = 4
 alignment = 1
 
 [node name="HealthBar" parent="HBoxContainer/VBoxContainer" unique_id=175721822 instance=ExtResource("2_dpci0")]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer" unique_id=1292730854]
 layout_mode = 2

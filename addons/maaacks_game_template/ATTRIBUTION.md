@@ -1,7 +1,32 @@
 # Attribution
-## Collaborators
 
-Pencil screnspace shader from Arri: https://godotshaders.com/shader/pencil-screen-space-shader/
+## Collaborators
+###- Music Composition & Graphic Design - 
+[Kevdoes] ( https://www.youtube.com/@KevDoesDev )
+### - Audio -
+[Soccer Mom]
+### - UI Artist -
+[Squeaky (Tawni Meyer)]
+### - Character Artist -
+[Fairymoonrat]
+[Marii] (https://www.artstation.com/marissa_williams)
+### - 3D Artist -
+[Hoesay Manwell (Sebastian Hernandez)](titanx1503.artstation.com/)
+### - Shaders -
+[ Sparkowtiz ] (https://sparkowtiz.itch.io)
+### - Lead Programmer -
+[ EverWand (Lucas Foxworthy)] (https://everwand.itch.io )
+
+## Asset Use
+### BGM
+Western Cowboy WesternMusic Sound-By Hit Labs (from Pixabay) 
+[ Used as Duel BGM ]
+
+### Shaders
+Pencil screen-space shader from Arri (https://godotshaders.com/shader/pencil-screen-space-shader/]
+Godot Brushtroke Shader from cyanone: (https://godotshaders.com/shader/skyward-sword-pointillism-with-depth/ ]
+Outline Shader from marcbbb: ( https://godotshaders.com/shader/2d-outline-universal/ ]
+
 
 ### Godot Minimal Game Template
 ![Maaack Plugin Icon](/addons/maaacks_game_template/assets/plugin_logo/logo.png)  

@@ -48,14 +48,16 @@ var curr_shots:int = 6 :
 
 @onready var health:HealthComponent = $HealthComponent
 @onready var damage:DamageComponent = $DamageComponent
-@onready var _p_hud: PlayerHUD = $PlayerHUD
+@onready var _p_hud: PlayerHUD = %PlayerHUD
 @onready var _damage_counter:DamageCounter = $Dmg_Counter
 @onready var _anim:AnimationPlayer = $AnimationPlayer
 
 var init_transform:Transform2D
 
+@onready var zoom_target : Marker2D = $zoom_target
+
 func _ready() -> void:
-	if !_p_hud: _p_hud.flip_hud(_sprite_show_back)
+	if _p_hud: _p_hud.flip_hud(_sprite_show_back)
 	
 	if Engine.is_editor_hint(): return
 	
@@ -121,9 +123,11 @@ func _handle_health_loss(change:float, _current:float):
 	_damage_counter.text = str(amount)
 	_damage_counter.launch(amount)
 	
-	AudioManager.play_sfx(data.sfx_hit)
-	_state = PLAYER_STATE.HIT
+	if _current > 0: 
+		AudioManager.play_sfx(data.sfx_hit)
+		_state = PLAYER_STATE.HIT
 
 func _handle_death():
+	AudioManager.play_sfx(data.sfx_hit)
 	_state = PLAYER_STATE.DEAD
 	dead.emit()

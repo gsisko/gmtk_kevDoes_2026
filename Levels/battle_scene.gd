@@ -4,12 +4,14 @@ class_name BattleScene
 signal round_start
 
 enum BATTLE_STATE {Battle_Start, Pre_Round, Duel, Post_Round, Battle_End}
+var _in_transition:bool = false
 var state:BATTLE_STATE = BATTLE_STATE.Battle_Start :
 	set(update):
-		if update == state: return
-		
+		if update == state || _in_transition: return
+		_in_transition = true
 		await _on_exit_state()
 		state = update
+		_in_transition = false
 		_on_enter_state()
 
 @onready var players:Array[PlayerCharacter] = [$PlayerCharacter, $PlayerCharacter2]
@@ -18,12 +20,16 @@ var state:BATTLE_STATE = BATTLE_STATE.Battle_Start :
 @export var _battle_theme:AudioStream
 
 @export var round_length_sec:float = 5
-@onready var round_timer:Timer = $Timer
-
+@onready var round_timer:Timer = %round_timer
 var battle_round:int = 1 : 
 	set(update):
 		battle_round = update
 		print("NEW ROUND: %s" %[battle_round])
+
+@onready var state_exit_delay_timer:Timer = %state_delay_timer
+@export var state_exit_delays_sec:Dictionary[BATTLE_STATE, float]
+@onready var _anim:AnimationPlayer = $AnimationPlayer
+
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	
@@ -38,7 +44,7 @@ func _ready() -> void:
 	
 	for i in players:
 		i.attacked.connect(end_round)
-		i.dead.connect(end_battle)
+		#i.dead.connect(end_round)
 	
 	#enter initial state
 	_on_enter_state()
@@ -51,6 +57,14 @@ func start_battle(): state = BATTLE_STATE.Battle_Start
 func end_battle(): state = BATTLE_STATE.Battle_End
 func begin_round(): state = BATTLE_STATE.Duel
 func end_round(): state = BATTLE_STATE.Post_Round
+
+func _zoom_on_player(player:PlayerCharacter):
+	camera.global_position = player.zoom_target.global_position
+	camera.zoom = Vector2(3, 3)
+	
+#func _reset_camera():
+	
+
 
 func get_time_distance_percentage():
 	if round_timer.is_stopped(): return 0
@@ -83,10 +97,9 @@ func _win_condition_met()->bool:
 	return _get_last_standing() != null || _get_total_ammo() <= 0
 
 #region BATTLE FSM
+## ENTER STATE:
 func _on_enter_state():
 	if Engine.is_editor_hint():return
-	
-	
 	print("ENTERING - %s" %[BATTLE_STATE.keys()[state]])
 	match state:
 		BATTLE_STATE.Battle_Start: 
@@ -100,12 +113,18 @@ func _on_enter_state():
 		BATTLE_STATE.Pre_Round:
 			for i in players:
 				i.set_state(PlayerCharacter.PLAYER_STATE.IDLE)
+				%round_label.text = str(battle_round)
+				_anim.play("Round_Sign")
 		BATTLE_STATE.Duel: 
 			round_timer.start(round_length_sec)
 			round_start.emit()
 		BATTLE_STATE.Post_Round: 
 			round_timer.stop()
-			if _win_condition_met(): end_battle()
+			battle_round += 1
+			if _win_condition_met(): 
+				end_battle()
+				return
+			state = BATTLE_STATE.Pre_Round
 		BATTLE_STATE.Battle_End: 
 			if !round_timer.is_stopped(): round_timer.stop()
 			GameManager.ui.close_hud()
@@ -114,19 +133,26 @@ func _on_enter_state():
 				if victory is VictoryMenu: 
 					victory.set_winner(_players_by_health()[0].data)
 					victory.set_loser(_players_by_health()[1].data)
-			# OPEN RESULT OVERLAY
-			queue_free()
+				# OPEN RESULT OVERLAY
+				queue_free()
+## PROCESS STATE 
 func _process_state():
 	match state:
-		BATTLE_STATE.Pre_Round: 	if _any_player_input(): state = BATTLE_STATE.Duel
+		BATTLE_STATE.Pre_Round:
+			if !_anim.is_playing():
+				state = BATTLE_STATE.Duel
 		BATTLE_STATE.Duel:
 			if Input.is_action_just_pressed("P1_Attack"):
 				players[0].attack()
+				_zoom_on_player(players[0].target)
 				return
 			if Input.is_action_just_pressed("P2_Attack"):
 				players[1].attack()
+				_zoom_on_player(players[1].target)
 				return
-		BATTLE_STATE.Post_Round: 	if _any_player_input(): state = BATTLE_STATE.Pre_Round
+## EXIT STATE
 func _on_exit_state():
-	print("EXITING - %s" %[BATTLE_STATE.keys()[state]])
+	if state_exit_delays_sec.has(state):
+		state_exit_delay_timer.start(state_exit_delays_sec[state])
+		await state_exit_delay_timer.timeout
 #endregion

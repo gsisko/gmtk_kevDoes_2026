@@ -7,16 +7,65 @@
 [ext_resource type="Texture2D" uid="uid://2w08d25ghlbj" path="res://Assets/Textures/Backgrounds/Final Render.png" id="4_6blmy"]
 [ext_resource type="Resource" uid="uid://ba0cuevo0a61b" path="res://Resource/Characters/GreggCole.tres" id="4_vmwxm"]
 [ext_resource type="Resource" uid="uid://bgqo1mpgbioqo" path="res://Resource/Characters/Cowboy.tres" id="5_on0bi"]
-[ext_resource type="Texture2D" uid="uid://bxmcakg2te6f2" path="res://Assets/Textures/Backgrounds/Backboard.png" id="8_vefwf"]
-[ext_resource type="Texture2D" uid="uid://b0nu7y6crb77" path="res://Assets/Textures/Star.png" id="9_hquv5"]
+[ext_resource type="Texture2D" uid="uid://dri0oe58m0ho5" path="res://Assets/Textures/RoundBorder.png" id="8_vefwf"]
+
+[sub_resource type="Animation" id="Animation_vefwf"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_hquv5"]
+resource_name = "Round_Sign"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-300, -0.25, 0, 0.25, 0, 93, -0.8000001, -48, 0, 0, 100, -0.9, 16, 0.36666667, -3, -300, -0.0888889, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.53333336, 1.6666666, 2)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7ol0r"]
+_data = {
+&"RESET": SubResource("Animation_vefwf"),
+&"Round_Sign": SubResource("Animation_hquv5")
+}
 
 [sub_resource type="Theme" id="Theme_6blmy"]
+Label/colors/font_color = Color(0.29411766, 0.13333334, 0.11372549, 1)
 Label/font_sizes/font_size = 50
 
 [node name="BattleScene" type="Node2D" unique_id=2098616304]
 script = ExtResource("1_on2e4")
 _battle_theme = ExtResource("2_jl84j")
 round_length_sec = 10.0
+state_exit_delays_sec = Dictionary[int, float]({
+1: 0.5,
+3: 2.0
+})
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1508945566]
+root_node = NodePath("../Control")
+libraries/ = SubResource("AnimationLibrary_7ol0r")
+
+[node name="state_delay_timer" type="Timer" parent="." unique_id=1423966949]
+unique_name_in_owner = true
+
+[node name="round_timer" type="Timer" parent="." unique_id=1345055870]
+unique_name_in_owner = true
 
 [node name="Sky" type="TextureRect" parent="." unique_id=673685035]
 offset_right = 1152.0
@@ -27,8 +76,6 @@ texture = ExtResource("2_gmxsy")
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("4_6blmy")
-
-[node name="Timer" type="Timer" parent="." unique_id=1345055870]
 
 [node name="PlayerCharacter" parent="." unique_id=1662879574 node_paths=PackedStringArray("target") instance=ExtResource("1_sh5gb")]
 position = Vector2(134, 362)
@@ -41,19 +88,23 @@ target = NodePath("../PlayerCharacter")
 data = ExtResource("5_on0bi")
 _sprite_show_back = false
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=649053479]
-limit_left = 0
-limit_top = 0
-limit_right = 1152
-limit_bottom = 648
-
 [node name="Control" type="TextureRect" parent="." unique_id=222982756]
-offset_left = 425.0
-offset_top = 285.0
-offset_right = 674.0
-offset_bottom = 486.0
-texture = ExtResource("9_hquv5")
-stretch_mode = 4
+z_index = 99
+custom_minimum_size = Vector2(400, 300)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 353.0
+offset_right = 753.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("8_vefwf")
+expand_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=953440046]
 layout_mode = 1
@@ -66,11 +117,6 @@ theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
-
-[node name="Star" type="TextureRect" parent="Control/MarginContainer" unique_id=1454526886]
-layout_mode = 2
-texture = ExtResource("8_vefwf")
-expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=1829389102]
 layout_mode = 2
@@ -85,10 +131,20 @@ text = "Round"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Control/MarginContainer/VBoxContainer" unique_id=1038029053]
+[node name="round_label" type="Label" parent="Control/MarginContainer/VBoxContainer" unique_id=1038029053]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme = SubResource("Theme_6blmy")
 text = "13315"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=649053479]
+position = Vector2(567, 324)
+offset = Vector2(8.925, 0)
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
+position_smoothing_enabled = true

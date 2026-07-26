@@ -5,12 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://dum2pujhh1w4g" path="res://addons/maaacks_game_template/examples/scenes/windows/main_menu_options_window.tscn" id="3_cfr4i"]
 [ext_resource type="Texture2D" uid="uid://cdwurgxtl10dg" path="res://Assets/Textures/Backgrounds/Title screen 1 up.png" id="4_1wns4"]
 [ext_resource type="PackedScene" uid="uid://c5pfkjxskjc60" path="res://addons/maaacks_game_template/examples/scenes/windows/main_menu_credits_window.tscn" id="4_qhsni"]
-[ext_resource type="AudioStream" uid="uid://d32v4mqquj4cs" path="res://Assets/Audio/bgm/hitslab-western-cowboy-western-music-543089.mp3" id="5_dj7gb"]
+[ext_resource type="AudioStream" uid="uid://dwvuhc30c1ove" path="res://Assets/Audio/bgm/Main Menu Theme.mp3" id="5_dj7gb"]
 [ext_resource type="AudioStream" uid="uid://cb25dwl75abge" path="res://Assets/Audio/sfx/PlayerGunshot.wav" id="5_gysq3"]
 [ext_resource type="Texture2D" uid="uid://c8apsjculrwm6" path="res://Assets/Textures/Backgrounds/Title screen 1down.png" id="5_qhsni"]
 [ext_resource type="Script" uid="uid://d2pck80iorg5d" path="res://addons/maaacks_game_template/examples/scenes/menus/main_menu/bgm.gd" id="7_dsclc"]
 [ext_resource type="Script" uid="uid://bww8ppihsuk22" path="res://addons/maaacks_game_template/examples/scenes/menus/main_menu/ui.gd" id="8_i1y08"]
 [ext_resource type="Script" uid="uid://dnpbl1s7lvmvj" path="res://addons/maaacks_game_template/examples/scenes/menus/main_menu/sfx.gd" id="8_q1t3s"]
+[ext_resource type="Theme" uid="uid://cc7juu78cpxfb" path="res://addons/maaacks_game_template/examples/resources/themes/expedition.tres" id="12_dj7gb"]
 
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_i1y08"]
 
@@ -153,6 +154,9 @@ offset_transform_rotation = 0.08726646
 
 [node name="ExitButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="3" unique_id=261758567]
 offset_transform_enabled = true
+
+[node name="ExitConfirmation" parent="." index="7" unique_id=1903054312]
+theme = ExtResource("12_dj7gb")
 
 [node name="anim_rect" type="ColorRect" parent="." index="8" unique_id=600887885]
 layout_mode = 1

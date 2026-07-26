@@ -5,7 +5,7 @@ class_name PlayerHUD
 
 var _player: PlayerCharacter
 
-@onready var _hp_bar:Health_Bar = $HBoxContainer/VBoxContainer/HealthBar
+@onready var _hp_bar:Health_Bar = %HealthBar
 @export  var flipped:bool = false
 
 func flip_hud(flip:bool): 

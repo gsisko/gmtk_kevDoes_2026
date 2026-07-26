@@ -13,17 +13,59 @@ size_flags_vertical = 5
 bbcode_enabled = true
 text = "[font_size=48]Collaborators[/font_size]
 
-[font_size=32]Role[/font_size]
-Person 1  
-Person 2  
-[url=]Person w/ Link[/url]  
+[font_size=30]- Music Composition & Graphic Design - [/font_size]
+ Kevdoes  
+[url=] https://www.youtube.com/@KevDoesDev [/url]
+
+[font_size=30]- Audio -[/font_size]
+Soccer Mom 
+
+[font_size=30]- UI Artist - [/font_size]
+Squeaky (Tawni Meyer)
+
+[font_size=30]- Character Artist -[/font_size]
+Marii 
+[url=]https://www.artstation.com/marissa_williams[/url]
+
+Fairymoonrat 
+
+[font_size=30]- 3D Artist -[/font_size]
+Hoesay Manwell (Sebastian Hernandez)
+[url=] titanx1503.artstation.com/ [/url]
+
+[font_size=30] - Programmer - [/font_size]
+EverWand (Lucas Foxworthy) 
+[url=]https://everwand.itch.io [/url] 
+
+[font_size=30]- Shaders - [/font_size]
+Sparkowtiz
+[url=] https://sparkowtiz.itch.io [/url]
 
 [font_size=48]Sourced[/font_size]
-[font_size=32]Asset Type[/font_size]
-[font_size=24]Use Case[/font_size]
-Author: [url=]Name[/url]  
-Source: [url=]Domain : webpage.html[/url]  
-License: [url=]License[/url]
+[font_size=32]Music[/font_size]
+[font_size=24]Western -Cowboy Western Music[/font_size]
+Author: [url=]HitsLab[/url]  
+Source: [url=]https://pixabay.com/music/traditional-country-western-cowboy-western-music-543089/[/url]  
+License: Pixabay Content License 
+[url=]https://pixabay.com/service/license-summary/[/url]
+
+
+[font_size=32]Shaders[/font_size]
+[font_size=24]Pencil Screen-Space Shader[/font_size]
+Author: [url=]Arri[/url]  
+Source: [url=]https://godotshaders.com/shader/pencil-screen-space-shader/[/url]  
+License: [url=]CC0 Liscense[/url]
+
+[font_size=24]Godot Brushstroke Shader[/font_size]
+Author: [url=]cyanone[/url]  
+Source: [url=]https://godotshaders.com/shader/skyward-sword-pointillism-with-depth/[/url]  
+License: [url=]CC0 Liscense[/url]
+
+[font_size=24]Outline Shader[/font_size]
+Author: [url=]marcbbb[/url]  
+Source: [url=]https://godotshaders.com/shader/2d-outline-universal/[/url]  
+License: [url=]CC0 Liscense[/url]
+
 
 [font_size=24]Godot Engine Logo[/font_size]
 Author: Andrea Calabró  

@@ -2,6 +2,6 @@
 
 [resource]
 Label/colors/font_color = Color(0.8674709, 0.026029134, 1.1551381e-06, 1)
-Label/colors/font_outline_color = Color(0.4392157, 0.08627451, 0, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/constants/outline_size = 8
 Label/font_sizes/font_size = 48
