@@ -48,10 +48,18 @@ _data = {
 Label/colors/font_color = Color(0.29411766, 0.13333334, 0.11372549, 1)
 Label/font_sizes/font_size = 50
 
+[sub_resource type="Gradient" id="Gradient_y361t"]
+offsets = PackedFloat32Array(0.52380955, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.5764706)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vefwf"]
+gradient = SubResource("Gradient_y361t")
+fill = 1
+fill_from = Vector2(0.53846157, 0.4871795)
+
 [node name="BattleScene" type="Node2D" unique_id=2098616304]
 script = ExtResource("1_on2e4")
 _battle_theme = ExtResource("2_jl84j")
-round_length_sec = 10.0
 state_exit_delays_sec = Dictionary[int, float]({
 1: 0.5,
 3: 2.0
@@ -148,3 +156,16 @@ limit_top = 0
 limit_right = 1152
 limit_bottom = 648
 position_smoothing_enabled = true
+
+[node name="vignette" type="TextureRect" parent="." unique_id=1633902106]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_right = 64.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(18.125256, 10.16)
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_vefwf")

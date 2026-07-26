@@ -57,12 +57,9 @@ var init_transform:Transform2D
 @onready var zoom_target : Marker2D = $zoom_target
 
 func _ready() -> void:
-	
-	
 	if Engine.is_editor_hint(): return
 	if _p_hud: _p_hud.flip_hud(_sprite_show_back)
-	
-	
+
 	GameManager.game_start.connect(reset)
 	_p_hud.sync_to_player(self)
 	health.lost_health.connect(_handle_health_loss)

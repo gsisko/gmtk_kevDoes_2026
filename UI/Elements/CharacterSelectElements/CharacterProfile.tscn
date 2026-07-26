@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dwjxh58i5tml3"]
+
+[ext_resource type="Script" uid="uid://dyabyca0kh7ed" path="res://UI/Elements/CharacterSelectElements/character_profile.gd" id="1_54j4f"]
+[ext_resource type="Texture2D" uid="uid://cnggjkdv1t3nr" path="res://Assets/Textures/Bars/Bar_white.png" id="1_em2ji"]
+[ext_resource type="Theme" uid="uid://3yuyp6mwppmj" path="res://Resource/Themes/MenuTheme.tres" id="2_ocbvd"]
+
+[node name="CharacterProfile" type="Control" unique_id=925539601]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -600.0
+offset_bottom = 100.0
+grow_horizontal = 0
+script = ExtResource("1_54j4f")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=688168306]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -646.0
+offset_bottom = 100.0
+grow_horizontal = 0
+
+[node name="playerLabel" type="Label" parent="HBoxContainer" unique_id=742256327]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_ocbvd")
+text = "P1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=461478725]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+offset_transform_enabled = true
+offset_transform_scale = Vector2(-1, 1)
+texture = ExtResource("1_em2ji")
+expand_mode = 1
+
+[node name="character_name" type="Label" parent="HBoxContainer/TextureRect" unique_id=1914350413]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(-1, 1)
+theme = ExtResource("2_ocbvd")
+theme_override_colors/font_color = Color(0.32925665, 0.10545162, 0, 1)
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer" unique_id=265533876]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(0.53629315, 0.27799553, 0, 1)

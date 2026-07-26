@@ -74,7 +74,7 @@ metadata/_custom_type_script = "uid://b4lyw8i3tfn2g"
 
 [node name="DamageComponent" type="Node" parent="." unique_id=753364670]
 script = ExtResource("3_jdwmw")
-debug = true
+_max_damage = 40.0
 _damage_curve = SubResource("Curve_jdwmw")
 metadata/_custom_type_script = "uid://b0vx0lr5bpl75"
 
