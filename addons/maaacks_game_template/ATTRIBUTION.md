@@ -2,6 +2,9 @@
 ## Collaborators
 
 Pencil screnspace shader from Arri: https://godotshaders.com/shader/pencil-screen-space-shader/
+Godot Brushtroke Shader from cyanone: https://godotshaders.com/shader/skyward-sword-pointillism-with-depth/
+Outline Shader from marcbbb: https://godotshaders.com/shader/2d-outline-universal/
+
 
 ### Godot Minimal Game Template
 ![Maaack Plugin Icon](/addons/maaacks_game_template/assets/plugin_logo/logo.png)  
