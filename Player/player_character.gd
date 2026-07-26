@@ -80,6 +80,7 @@ func attack():
 	AudioManager.play_sfx(data.sfx_shoot)
 	attacked.emit()
 func reset():
+	set_data(data) ## NEW SO IF THIS BREAKS IT DELETE!!!
 	curr_shots = max_shots
 	health.reset_health()
 	_state = PLAYER_STATE.IDLE

@@ -3,13 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://cnhmiwchlpghb" path="res://Assets/Textures/Wanted poster.png" id="1_ty1j2"]
 [ext_resource type="Script" uid="uid://bubownsdb1yvs" path="res://Assets/Objects/wanted_poster.gd" id="2_y4bxq"]
 [ext_resource type="Resource" uid="uid://bgqo1mpgbioqo" path="res://Resource/Characters/Cowboy.tres" id="3_g7e62"]
+[ext_resource type="Texture2D" uid="uid://byoe3rpm723vs" path="res://Assets/Character_Sprites/other gun guy/Orange_Gun_Guy_portrait.png" id="4_g7e62"]
 [ext_resource type="Texture2D" uid="uid://bqg0pxdtna44j" path="res://Assets/Textures/Hole.png" id="4_y4bxq"]
-[ext_resource type="Texture2D" uid="uid://c5cmgrpjb6eti" path="res://Assets/Character_Sprites/gun guy/cowboy_portrait.jpg" id="5_g7e62"]
 
 [node name="WantedPoster" type="TextureRect" unique_id=928851056]
 custom_minimum_size = Vector2(100, 200)
-offset_right = 100.0
-offset_bottom = 200.0
+offset_left = -49.0
+offset_top = -69.0
+offset_right = 51.0
+offset_bottom = 131.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("1_ty1j2")
 expand_mode = 1
 script = ExtResource("2_y4bxq")
@@ -22,15 +26,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 47
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 97
+theme_override_constants/margin_left = 11
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 9
+theme_override_constants/margin_bottom = 100
 
 [node name="Portrait" type="TextureRect" parent="MarginContainer" unique_id=1496021624]
 unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("5_g7e62")
+texture = ExtResource("4_g7e62")
 expand_mode = 1
 
 [node name="Holes" type="Control" parent="." unique_id=766691206]

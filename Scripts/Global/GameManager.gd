@@ -6,7 +6,7 @@ signal player_died(player:PlayerCharacter)
 enum GAMEMODE {MENU, BATTLE, VICTORY}
 var mode:GAMEMODE = GAMEMODE.MENU
 
-var main_root: Node
+var main_root: MainLevel
 var main_menu_scene: PackedScene = preload("uid://byvydukidk6i2")
 
 var BGM:AudioStreamPlayer
@@ -30,6 +30,11 @@ func main_menu():
 	if main_root: main_root.queue_free()
 	
 func start_game(): game_start.emit()
+
+func start_battle(data_1:Character_Data, data_2:Character_Data):
+	main_root._start_battle()
+	if battle_instance:
+		battle_instance.set_data(data_1,data_2)
 
 func quit_game(): get_tree().quit()
 

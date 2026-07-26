@@ -3,9 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://bupsvc1d1oexg" path="res://UI/Elements/CharacterSelectElements/character_select_btn.tscn" id="1_iensj"]
 [ext_resource type="Script" uid="uid://cqv4uu5vjbpbo" path="res://UI/Overlays/character_select_menu.gd" id="1_uhx46"]
 [ext_resource type="PackedScene" uid="uid://dwjxh58i5tml3" path="res://UI/Elements/CharacterSelectElements/CharacterProfile.tscn" id="2_4m60u"]
+[ext_resource type="Script" uid="uid://c0k7sfbbojjaw" path="res://Resource/Characters/character_data.gd" id="2_s7odb"]
 [ext_resource type="Resource" uid="uid://bgqo1mpgbioqo" path="res://Resource/Characters/Cowboy.tres" id="2_uyau2"]
 [ext_resource type="Texture2D" uid="uid://bxmcakg2te6f2" path="res://Assets/Textures/Backgrounds/Backboard.png" id="3_0ldb4"]
+[ext_resource type="Resource" uid="uid://ba0cuevo0a61b" path="res://Resource/Characters/GreggCole.tres" id="4_igvnt"]
 [ext_resource type="Texture2D" uid="uid://cnhmiwchlpghb" path="res://Assets/Textures/Wanted poster.png" id="4_y361t"]
+[ext_resource type="Resource" uid="uid://j1xqta4ixn1c" path="res://Resource/Characters/Orange_gun.tres" id="5_at76v"]
 [ext_resource type="PackedScene" uid="uid://b0jnpiigps2so" path="res://UI/Elements/Buttons/Menu Button.tscn" id="5_qb30g"]
 
 [sub_resource type="Gradient" id="Gradient_y361t"]
@@ -25,7 +28,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uhx46")
-p1_data = ExtResource("2_uyau2")
+characters = Array[ExtResource("2_s7odb")]([ExtResource("2_uyau2"), ExtResource("4_igvnt"), ExtResource("5_at76v")])
 
 [node name="bg" type="TextureRect" parent="." unique_id=2097739281]
 layout_mode = 1
@@ -52,17 +55,33 @@ theme_override_constants/margin_bottom = 30
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1601238178]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1866694020]
+[node name="Poster-side" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1866694020]
 custom_minimum_size = Vector2(400, 150)
 layout_mode = 2
 texture = ExtResource("4_y361t")
 expand_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/TextureRect" unique_id=134929623]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer/Poster-side" unique_id=334898870]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 46
+theme_override_constants/margin_top = 139
+theme_override_constants/margin_right = 38
+theme_override_constants/margin_bottom = 292
+
+[node name="Portrait" type="TextureRect" parent="MarginContainer/HBoxContainer/Poster-side/MarginContainer2" unique_id=930384494]
+unique_name_in_owner = true
+layout_mode = 2
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Poster-side" unique_id=134929623]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 588.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 35
@@ -70,11 +89,11 @@ theme_override_constants/margin_top = 311
 theme_override_constants/margin_right = 35
 theme_override_constants/margin_bottom = 134
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/TextureRect/MarginContainer" unique_id=833536193]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/Poster-side/MarginContainer" unique_id=833536193]
 layout_mode = 2
 color = Color(1, 1, 1, 0.32156864)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/TextureRect/MarginContainer/ColorRect" unique_id=695008687]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Poster-side/MarginContainer/ColorRect" unique_id=695008687]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -82,7 +101,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="char_name" type="Label" parent="MarginContainer/HBoxContainer/TextureRect/MarginContainer/ColorRect/VBoxContainer" unique_id=1851390437]
+[node name="char_name" type="Label" parent="MarginContainer/HBoxContainer/Poster-side/MarginContainer/ColorRect/VBoxContainer" unique_id=1851390437]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.15686275, 0.09411765, 0.02745098, 1)
@@ -90,7 +109,7 @@ theme_override_font_sizes/font_size = 24
 text = "Name"
 horizontal_alignment = 1
 
-[node name="char_desc" type="Label" parent="MarginContainer/HBoxContainer/TextureRect/MarginContainer/ColorRect/VBoxContainer" unique_id=968173010]
+[node name="char_desc" type="Label" parent="MarginContainer/HBoxContainer/Poster-side/MarginContainer/ColorRect/VBoxContainer" unique_id=968173010]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -98,28 +117,30 @@ theme_override_colors/font_color = Color(0.15686275, 0.09411765, 0.02745098, 1)
 text = "This is the Character's Description"
 horizontal_alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=442309504]
+[node name="Interface" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=442309504]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1169577395]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Interface" unique_id=1169577395]
 layout_mode = 2
 
-[node name="CharacterProfile" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer" unique_id=925539601 instance=ExtResource("2_4m60u")]
+[node name="CharacterProfile" parent="MarginContainer/HBoxContainer/Interface/VBoxContainer" unique_id=925539601 instance=ExtResource("2_4m60u")]
+unique_name_in_owner = true
 layout_mode = 2
 player_id = 1
 
-[node name="CharacterProfile2" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer" unique_id=1653722063 instance=ExtResource("2_4m60u")]
+[node name="CharacterProfile2" parent="MarginContainer/HBoxContainer/Interface/VBoxContainer" unique_id=1653722063 instance=ExtResource("2_4m60u")]
+unique_name_in_owner = true
 layout_mode = 2
 offset_transform_enabled = true
 player_id = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1819507841]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/Interface" unique_id=1819507841]
 layout_mode = 2
 size_flags_vertical = 3
 color = Color(0, 0, 0, 0.48235294)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/ColorRect" unique_id=283044686]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Interface/ColorRect" unique_id=283044686]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -129,42 +150,54 @@ offset_top = -75.0
 offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 31
 
-[node name="roster_root" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/ColorRect/VBoxContainer" unique_id=1813842286]
+[node name="roster_root" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Interface/ColorRect/VBoxContainer" unique_id=1813842286]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
 size_flags_vertical = 8
+theme_override_constants/separation = 64
+alignment = 1
 
-[node name="character_select_btn" parent="MarginContainer/HBoxContainer/VBoxContainer2/ColorRect/VBoxContainer/roster_root" unique_id=698222984 instance=ExtResource("1_iensj")]
+[node name="character_select_btn" parent="MarginContainer/HBoxContainer/Interface/ColorRect/VBoxContainer/roster_root" unique_id=698222984 instance=ExtResource("1_iensj")]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
 
-[node name="character_select_btn2" parent="MarginContainer/HBoxContainer/VBoxContainer2/ColorRect/VBoxContainer/roster_root" unique_id=1511524068 instance=ExtResource("1_iensj")]
+[node name="character_select_btn2" parent="MarginContainer/HBoxContainer/Interface/ColorRect/VBoxContainer/roster_root" unique_id=1511524068 instance=ExtResource("1_iensj")]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
 
-[node name="character_select_btn3" parent="MarginContainer/HBoxContainer/VBoxContainer2/ColorRect/VBoxContainer/roster_root" unique_id=313925358 instance=ExtResource("1_iensj")]
+[node name="character_select_btn3" parent="MarginContainer/HBoxContainer/Interface/ColorRect/VBoxContainer/roster_root" unique_id=313925358 instance=ExtResource("1_iensj")]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/ColorRect/VBoxContainer" unique_id=724598791]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Interface/ColorRect/VBoxContainer" unique_id=724598791]
+unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
 
-[node name="player_select_id_label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/ColorRect/VBoxContainer/HBoxContainer" unique_id=758087246]
+[node name="player_hint" type="Label" parent="MarginContainer/HBoxContainer/Interface/ColorRect/VBoxContainer/HBoxContainer" unique_id=758087246]
 layout_mode = 2
 text = "Select a Character,"
 
-[node name="player_select_id_label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/ColorRect/VBoxContainer/HBoxContainer" unique_id=501294758]
+[node name="player_hint_id" type="Label" parent="MarginContainer/HBoxContainer/Interface/ColorRect/VBoxContainer/HBoxContainer" unique_id=501294758]
+unique_name_in_owner = true
 layout_mode = 2
 text = "[ P0 ]"
 
-[node name="MenuButton" parent="MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1430065911 instance=ExtResource("5_qb30g")]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Interface" unique_id=2012406888]
+layout_mode = 2
+
+[node name="Back_Button" parent="MarginContainer/HBoxContainer/Interface/HBoxContainer" unique_id=1430065911 instance=ExtResource("5_qb30g")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 _text = "Back"
+
+[node name="Start_Button" parent="MarginContainer/HBoxContainer/Interface/HBoxContainer" unique_id=665044373 instance=ExtResource("5_qb30g")]
+layout_mode = 2
+_text = "Duel!"
 
 [node name="vignette" type="TextureRect" parent="." unique_id=843247584]
 layout_mode = 1
@@ -176,4 +209,5 @@ grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("GradientTexture2D_y361t")
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Interface/HBoxContainer/Back_Button" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Interface/HBoxContainer/Start_Button" to="." method="_on_start_button_pressed"]

@@ -1,4 +1,6 @@
 extends CanvasLayer
+class_name MainLevel
+
 
 @onready var battle_scene:PackedScene = preload("uid://clyy8ub0nlhdm")
 @onready var character_select_scene: PackedScene = preload("uid://br16uk57e2jrn")
@@ -14,15 +16,15 @@ func _ready() -> void:
 	GameManager.start_game()
 	
 func on_game_start():
-	_start_battle()
-	#_start_character_select()
+	start_battle()
+	#start_character_select()
 
-func _start_battle():
+func start_battle():
 	if !GameManager.battle_instance:
 		print("NEW BATTLE")
 		GameManager.battle_instance = battle_scene.instantiate()
 		level_root.add_child(GameManager.battle_instance)
-func _start_character_select():
+func start_character_select():
 	if !UI.instance:return
 	UI.open_overlay(UI.OVERLAY.Character_Select)
 		

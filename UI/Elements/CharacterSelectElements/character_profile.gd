@@ -1,5 +1,6 @@
 @tool
 extends Control
+class_name CharacterProfile
 
 @onready var player_label: Label = %playerLabel
 @onready var character_label:Label = %character_name
@@ -11,13 +12,13 @@ extends Control
 		_update_player_label()
 
 func _ready() -> void:
-	player_label = player_label
-	character_label=character_label
 	_update_player_label()
 
 func set_data(data:Character_Data):
-	character_label.text = data.name
-
+	var _name:String = ""
+	if data: _name = data.name
+	
+	character_label.text = _name
 
 func _update_player_label():
 	if !player_label: return

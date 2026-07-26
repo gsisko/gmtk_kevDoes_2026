@@ -28,7 +28,7 @@ grow_horizontal = 0
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("2_ocbvd")
-text = "P1"
+text = "P0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -53,7 +53,8 @@ offset_transform_enabled = true
 offset_transform_scale = Vector2(-1, 1)
 theme = ExtResource("2_ocbvd")
 theme_override_colors/font_color = Color(0.32925665, 0.10545162, 0, 1)
-text = "Name"
+text = "
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 

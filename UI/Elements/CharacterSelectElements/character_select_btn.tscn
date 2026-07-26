@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bupsvc1d1oexg"]
 
 [ext_resource type="Script" uid="uid://blue8sudq7k54" path="res://UI/Elements/CharacterSelectElements/character_select_btn.gd" id="1_1yt6u"]
-[ext_resource type="Texture2D" uid="uid://cnhmiwchlpghb" path="res://Assets/Textures/Wanted poster.png" id="2_d6f3r"]
+[ext_resource type="PackedScene" uid="uid://c2hu05m6y60b5" path="res://Assets/Objects/wanted_poster.tscn" id="3_d6f3r"]
 
 [node name="character_select_btn" type="Control" unique_id=698222984]
 custom_minimum_size = Vector2(100, 150)
@@ -13,36 +13,21 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_1yt6u")
 
-[node name="poster" type="TextureRect" parent="." unique_id=1792092570]
-custom_minimum_size = Vector2(100, 200)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -100.0
-offset_right = 50.0
-offset_bottom = 100.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_d6f3r")
-expand_mode = 1
+[node name="WantedPoster" parent="." unique_id=928851056 instance=ExtResource("3_d6f3r")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 100.0
+offset_bottom = 200.0
 
-[node name="Button" type="Button" parent="poster" unique_id=2006607715]
+[node name="Button" type="Button" parent="." unique_id=2006607715]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-flat = true
 
-[node name="SubViewport" type="SubViewport" parent="." unique_id=583241178]
-
-[node name="Sprite2D" type="Sprite2D" parent="SubViewport" unique_id=125782851]
-
-[connection signal="mouse_entered" from="poster/Button" to="." method="_on_button_mouse_entered"]
-[connection signal="mouse_exited" from="poster/Button" to="." method="_on_button_mouse_exited"]
-[connection signal="pressed" from="poster/Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

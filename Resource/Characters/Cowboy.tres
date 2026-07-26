@@ -8,7 +8,8 @@
 
 [resource]
 script = ExtResource("1_6jyfk")
-name = "Gun Guy"
+name = "Beau Bean"
+desc = "Takes good care of his mustache"
 sprite_sheet = ExtResource("2_tssvw")
 portrait = ExtResource("1_kbgfg")
 sfx_shoot = ExtResource("4_goih6")

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bls0ew4di1enc" path="res://Levels/battle_scene.gd" id="1_on2e4"]
 [ext_resource type="PackedScene" uid="uid://bkpemcvteg3tu" path="res://Player/PlayerCharacter.tscn" id="1_sh5gb"]
 [ext_resource type="Texture2D" uid="uid://cnnveutn2puku" path="res://Assets/Textures/Backgrounds/Background_1.png" id="2_gmxsy"]
+[ext_resource type="Resource" uid="uid://j1xqta4ixn1c" path="res://Resource/Characters/Orange_gun.tres" id="2_hquv5"]
 [ext_resource type="AudioStream" uid="uid://d32v4mqquj4cs" path="res://Assets/Audio/bgm/hitslab-western-cowboy-western-music-543089.mp3" id="2_jl84j"]
 [ext_resource type="Texture2D" uid="uid://2w08d25ghlbj" path="res://Assets/Textures/Backgrounds/Final Render.png" id="4_6blmy"]
 [ext_resource type="Resource" uid="uid://ba0cuevo0a61b" path="res://Resource/Characters/GreggCole.tres" id="4_vmwxm"]
@@ -59,6 +60,8 @@ fill_from = Vector2(0.53846157, 0.4871795)
 
 [node name="BattleScene" type="Node2D" unique_id=2098616304]
 script = ExtResource("1_on2e4")
+_data_p1 = ExtResource("2_hquv5")
+_data_p2 = ExtResource("5_on0bi")
 _battle_theme = ExtResource("2_jl84j")
 state_exit_delays_sec = Dictionary[int, float]({
 1: 0.5,

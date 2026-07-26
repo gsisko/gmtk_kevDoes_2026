@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Character_Data" format=3 uid="uid://j1xqta4ixn1c"]
+
+[ext_resource type="Texture2D" uid="uid://byoe3rpm723vs" path="res://Assets/Character_Sprites/other gun guy/Orange_Gun_Guy_portrait.png" id="1_qnen2"]
+[ext_resource type="Script" uid="uid://c0k7sfbbojjaw" path="res://Resource/Characters/character_data.gd" id="1_yylrf"]
+[ext_resource type="AudioStream" uid="uid://brygf5byvco58" path="res://Assets/Audio/sfx/PlayerDamage.wav" id="2_6tf6t"]
+[ext_resource type="AudioStream" uid="uid://cb25dwl75abge" path="res://Assets/Audio/sfx/PlayerGunshot.wav" id="3_qnen2"]
+[ext_resource type="Texture2D" uid="uid://27c0fywg48ti" path="res://Assets/Character_Sprites/other gun guy/mariiDood2.png" id="5_xk1e3"]
+
+[resource]
+script = ExtResource("1_yylrf")
+name = "Orange Shirt"
+desc = "This person is wearing an orange shirt!"
+sprite_sheet = ExtResource("5_xk1e3")
+portrait = ExtResource("1_qnen2")
+metadata/_custom_type_script = "uid://c0k7sfbbojjaw"

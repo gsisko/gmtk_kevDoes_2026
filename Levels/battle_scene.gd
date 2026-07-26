@@ -3,6 +3,12 @@ class_name BattleScene
 
 signal round_start
 
+
+@export_group("Character Data", "_data")
+@export var _data_p1:Character_Data
+@export var _data_p2:Character_Data
+
+
 enum BATTLE_STATE {Battle_Start, Pre_Round, Duel, Post_Round, Battle_End}
 var _in_transition:bool = false
 var state:BATTLE_STATE = BATTLE_STATE.Battle_Start :
@@ -53,6 +59,9 @@ func _process(_delta: float) -> void:
 
 func get_camera()->Camera2D: return camera
 
+func set_data(p1:Character_Data, p2:Character_Data):
+	players[0].set_data(p1)
+	players[1].set_data(p2)
 func start_battle(): state = BATTLE_STATE.Battle_Start
 func end_battle(): state = BATTLE_STATE.Battle_End
 func begin_round(): state = BATTLE_STATE.Duel
