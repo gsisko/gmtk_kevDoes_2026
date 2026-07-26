@@ -2,5 +2,6 @@ extends AudioStreamPlayer
 
 func _ready() -> void:
 	if AudioManager._ui_player: return
-	AudioManager._ui_player = self
-	reparent(AudioManager.root)
+	var copy:= self.duplicate()
+	AudioManager._ui_player = copy
+	AudioManager.root.add_child(copy)

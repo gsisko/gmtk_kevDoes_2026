@@ -1,6 +1,5 @@
 extends MainMenu
 
-
 @export_group("Background", "_bg")
 @export var _bg_idle_texture:Texture
 @export var _bg_play_texture:Texture
@@ -8,13 +7,17 @@ extends MainMenu
 @onready var bg_node:TextureRect = %BackgroundTextureRect
 @onready var _anim:AnimationPlayer = $AnimationPlayer
 
-@export_group("SFX", "_sfx")
+@export_group("Audio")
+@export var _menu_bgm:AudioStream
 @export var _sfx_gunshot:AudioStream
 
 func new_game() -> void:
 	if bg_node: bg_node.texture = _bg_play_texture
 	
 	AudioManager.play_sfx(_sfx_gunshot)
+	
+	for i:TextureButton in menu_buttons_box_container.get_children():
+		i.disabled = true
 	
 	if _anim: 
 		_anim.play("flash")
@@ -31,7 +34,7 @@ func new_game() -> void:
 func _ready() -> void:
 	super._ready()
 	
-	
+	AudioManager.switch_bgm(_menu_bgm)
 	
 	#Set BG
 	if bg_node: bg_node.texture = _bg_idle_texture

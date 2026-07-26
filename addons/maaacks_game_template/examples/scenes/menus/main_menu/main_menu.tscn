@@ -5,12 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://dum2pujhh1w4g" path="res://addons/maaacks_game_template/examples/scenes/windows/main_menu_options_window.tscn" id="3_cfr4i"]
 [ext_resource type="Texture2D" uid="uid://cdwurgxtl10dg" path="res://Assets/Textures/Backgrounds/Title screen 1 up.png" id="4_1wns4"]
 [ext_resource type="PackedScene" uid="uid://c5pfkjxskjc60" path="res://addons/maaacks_game_template/examples/scenes/windows/main_menu_credits_window.tscn" id="4_qhsni"]
+[ext_resource type="AudioStream" uid="uid://cb25dwl75abge" path="res://Assets/Audio/sfx/PlayerGunshot.wav" id="5_gysq3"]
 [ext_resource type="Texture2D" uid="uid://c8apsjculrwm6" path="res://Assets/Textures/Backgrounds/Title screen 1down.png" id="5_qhsni"]
+[ext_resource type="AudioStream" uid="uid://bdttsqw4gucxl" path="res://Assets/Audio/sfx/LossJingle.wav" id="6_gysq3"]
 [ext_resource type="Script" uid="uid://d2pck80iorg5d" path="res://addons/maaacks_game_template/examples/scenes/menus/main_menu/bgm.gd" id="7_dsclc"]
 [ext_resource type="Script" uid="uid://bww8ppihsuk22" path="res://addons/maaacks_game_template/examples/scenes/menus/main_menu/ui.gd" id="8_i1y08"]
 [ext_resource type="Script" uid="uid://dnpbl1s7lvmvj" path="res://addons/maaacks_game_template/examples/scenes/menus/main_menu/sfx.gd" id="8_q1t3s"]
-
-[sub_resource type="AudioStream" id="AudioStream_q1t3s"]
 
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_i1y08"]
 
@@ -72,13 +72,13 @@ _data = {
 script = ExtResource("2_lk0wa")
 _bg_idle_texture = ExtResource("5_qhsni")
 _bg_play_texture = ExtResource("4_1wns4")
-_bg_anim_length = 0.0
-_sfx_gunshot = null
+_bg_anim_length = 0.5
+_menu_bgm = ExtResource("6_gysq3")
+_sfx_gunshot = ExtResource("5_gysq3")
 options_packed_scene = ExtResource("3_cfr4i")
 credits_packed_scene = ExtResource("4_qhsni")
 
 [node name="BGM" type="AudioStreamPlayer" parent="." index="0" unique_id=1375114504]
-stream = SubResource("AudioStream_q1t3s")
 bus = &"BGM"
 script = ExtResource("7_dsclc")
 
@@ -121,7 +121,10 @@ theme_override_constants/margin_left = 679
 theme_override_constants/margin_top = 295
 theme_override_constants/margin_right = 102
 
-[node name="MenuButtonsBoxContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer" parent_id_path=PackedInt32Array(580041505) index="0" unique_id=1183703744]
+[node name="MenuButtonsContainer" parent="MenuContainer/MenuButtonsMargin" index="0" unique_id=580041505]
+mouse_filter = 0
+
+[node name="MenuButtonsBoxContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer" index="0" unique_id=1183703744]
 anchors_preset = 15
 anchor_left = 0.0
 anchor_top = 0.0
@@ -131,6 +134,7 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
+mouse_filter = 0
 
 [node name="NewGameButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="0" unique_id=1430065911]
 offset_transform_enabled = true

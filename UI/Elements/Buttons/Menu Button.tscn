@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://cwihm7h8qrwsg" path="res://Assets/Textures/Button/Clicked.png" id="2_niso1"]
 [ext_resource type="Texture2D" uid="uid://w80ar7c5ug44" path="res://Assets/Textures/Button/Hover.png" id="3_2473e"]
 [ext_resource type="Theme" uid="uid://3yuyp6mwppmj" path="res://Resource/Themes/MenuTheme.tres" id="4_niso1"]
+[ext_resource type="AudioStream" uid="uid://c0jey1g1fjkst" path="res://Assets/Audio/sfx/MenuHover.wav" id="5_jpn7m"]
+[ext_resource type="AudioStream" uid="uid://bq07y2a008ah7" path="res://Assets/Audio/sfx/MenuSelect.wav" id="6_m3cpq"]
 
 [node name="MenuButton" type="TextureButton" unique_id=1430065911 node_paths=PackedStringArray("_label")]
 custom_minimum_size = Vector2(200, 100)
@@ -18,6 +20,8 @@ stretch_mode = 0
 script = ExtResource("1_2473e")
 _label = NodePath("Label")
 _text = "Button"
+_sfx_hover = ExtResource("5_jpn7m")
+_sfx_pressed = ExtResource("6_m3cpq")
 
 [node name="Label" type="Label" parent="." unique_id=745738380]
 layout_mode = 1
@@ -36,3 +40,7 @@ theme = ExtResource("4_niso1")
 text = "Button"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
