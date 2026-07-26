@@ -77,6 +77,7 @@ func attack():
 	_state = PLAYER_STATE.ATTACK
 	damage.deal_damage(target.health)
 	curr_shots -= 1
+	AudioManager.play_sfx(data.sfx_shoot)
 	attacked.emit()
 func reset():
 	curr_shots = max_shots
@@ -114,13 +115,13 @@ func _update_animation():
 	_sprite.flip_h = _sprite_flipped
 	
 	if _anim: _anim.play("sprite_bounce")
-	
 func _handle_health_loss(change:float, _current:float):
 	#PLAY ANIMATION DAMAGE
 	var amount:int = abs(int(change))
 	_damage_counter.text = str(amount)
 	_damage_counter.launch(amount)
 	
+	AudioManager.play_sfx(data.sfx_hit)
 	_state = PLAYER_STATE.HIT
 
 func _handle_death():

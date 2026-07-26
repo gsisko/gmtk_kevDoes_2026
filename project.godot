@@ -14,7 +14,7 @@ config/name="Quick Hip"
 config/version="0.1"
 run/main_scene="uid://cyqy6dvynho67"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://Assets/Textures/icon.svg"
+config/icon="uid://4q335xxs2p"
 
 [audio]
 

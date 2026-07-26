@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://djddjadv4a43r" path="res://UI/Overlays/victory_menu.gd" id="1_40fnx"]
 [ext_resource type="Texture2D" uid="uid://cpdqlir3yi8aw" path="res://Assets/Textures/Backgrounds/Background.png" id="2_worf8"]
 [ext_resource type="Theme" uid="uid://clhemy271v0j6" path="res://Resource/Themes/Action_Theme.tres" id="3_aq1jq"]
+[ext_resource type="AudioStream" uid="uid://cgoyr41di6fil" path="res://Assets/Audio/sfx/WindAmbienceLoop.wav" id="3_oqv3y"]
 [ext_resource type="Texture2D" uid="uid://3c2xc5qjabr8" path="res://Assets/Textures/Banner.png" id="5_oebv8"]
 [ext_resource type="Texture2D" uid="uid://b0nu7y6crb77" path="res://Assets/Textures/Star.png" id="5_worf8"]
 [ext_resource type="Shader" uid="uid://5lfllxse1774" path="res://Assets/Shaders/2d_outline_Shader.gdshader" id="6_7p3or"]
@@ -29,6 +30,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_40fnx")
+_bgm = ExtResource("3_oqv3y")
+_wind = ExtResource("3_oqv3y")
 
 [node name="Background1" type="TextureRect" parent="." unique_id=246472709]
 layout_mode = 1

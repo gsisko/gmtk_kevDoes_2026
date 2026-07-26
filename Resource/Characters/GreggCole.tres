@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://ylbpgwjj81j3" path="res://Assets/Character_Sprites/Crow/Greg Cole_portrait.png" id="1_3cpef"]
 [ext_resource type="Script" uid="uid://c0k7sfbbojjaw" path="res://Resource/Characters/character_data.gd" id="1_ufgu6"]
 [ext_resource type="Texture2D" uid="uid://nn3odlmbabbw" path="res://Assets/Character_Sprites/Crow/crow_spritesheet_512.png" id="2_t70me"]
+[ext_resource type="AudioStream" uid="uid://brygf5byvco58" path="res://Assets/Audio/sfx/PlayerDamage.wav" id="3_qqlpt"]
+[ext_resource type="AudioStream" uid="uid://37xmieughx1t" path="res://Assets/Audio/sfx/EnemyGunshotFinalHit.wav" id="4_tlqtb"]
 
 [resource]
 script = ExtResource("1_ufgu6")
@@ -10,4 +12,5 @@ name = "Gregg Cole"
 desc = "The Flying Gunner"
 sprite_sheet = ExtResource("2_t70me")
 portrait = ExtResource("1_3cpef")
+sfx_shoot = ExtResource("4_tlqtb")
 metadata/_custom_type_script = "uid://c0k7sfbbojjaw"

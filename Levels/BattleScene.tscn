@@ -3,27 +3,30 @@
 [ext_resource type="Script" uid="uid://bls0ew4di1enc" path="res://Levels/battle_scene.gd" id="1_on2e4"]
 [ext_resource type="PackedScene" uid="uid://bkpemcvteg3tu" path="res://Player/PlayerCharacter.tscn" id="1_sh5gb"]
 [ext_resource type="Texture2D" uid="uid://cnnveutn2puku" path="res://Assets/Textures/Backgrounds/Background_1.png" id="2_gmxsy"]
+[ext_resource type="AudioStream" uid="uid://d32v4mqquj4cs" path="res://Assets/Audio/bgm/hitslab-western-cowboy-western-music-543089.mp3" id="2_jl84j"]
+[ext_resource type="Texture2D" uid="uid://2w08d25ghlbj" path="res://Assets/Textures/Backgrounds/Final Render.png" id="4_6blmy"]
 [ext_resource type="Resource" uid="uid://ba0cuevo0a61b" path="res://Resource/Characters/GreggCole.tres" id="4_vmwxm"]
 [ext_resource type="Resource" uid="uid://bgqo1mpgbioqo" path="res://Resource/Characters/Cowboy.tres" id="5_on0bi"]
+[ext_resource type="Texture2D" uid="uid://bxmcakg2te6f2" path="res://Assets/Textures/Backgrounds/Backboard.png" id="8_vefwf"]
+[ext_resource type="Texture2D" uid="uid://b0nu7y6crb77" path="res://Assets/Textures/Star.png" id="9_hquv5"]
+
+[sub_resource type="Theme" id="Theme_6blmy"]
+Label/font_sizes/font_size = 50
 
 [node name="BattleScene" type="Node2D" unique_id=2098616304]
 script = ExtResource("1_on2e4")
+_battle_theme = ExtResource("2_jl84j")
 round_length_sec = 10.0
 
-[node name="BGM" type="AudioStreamPlayer" parent="." unique_id=1643264637]
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=649053479]
-limit_left = 0
-limit_top = 0
-limit_right = 1152
-limit_bottom = 648
-position_smoothing_enabled = true
-
-[node name="BG" type="TextureRect" parent="." unique_id=673685035]
-visible = false
+[node name="Sky" type="TextureRect" parent="." unique_id=673685035]
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("2_gmxsy")
+
+[node name="Environment" type="TextureRect" parent="." unique_id=956517680]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_6blmy")
 
 [node name="Timer" type="Timer" parent="." unique_id=1345055870]
 
@@ -37,3 +40,55 @@ position = Vector2(658, 167)
 target = NodePath("../PlayerCharacter")
 data = ExtResource("5_on0bi")
 _sprite_show_back = false
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=649053479]
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
+
+[node name="Control" type="TextureRect" parent="." unique_id=222982756]
+offset_left = 425.0
+offset_top = 285.0
+offset_right = 674.0
+offset_bottom = 486.0
+texture = ExtResource("9_hquv5")
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=953440046]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Star" type="TextureRect" parent="Control/MarginContainer" unique_id=1454526886]
+layout_mode = 2
+texture = ExtResource("8_vefwf")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=1829389102]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer" unique_id=1106520779]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_6blmy")
+text = "Round"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/MarginContainer/VBoxContainer" unique_id=1038029053]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_6blmy")
+text = "13315"
+horizontal_alignment = 1
+vertical_alignment = 1

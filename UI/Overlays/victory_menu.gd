@@ -9,6 +9,15 @@ class_name VictoryMenu
 @onready var charName:Label = %Char_Name
 @onready var _sprite: Sprite2D = %Sprite2D
 @onready var _poster:WantedPoster = $WantedPoster
+
+@export var _bgm:AudioStream
+@export var _wind:AudioStream
+
+
+func _ready() -> void:
+	AudioManager.switch_bgm(_bgm)
+	AudioManager.play_sfx(_wind)
+
 func _update_menu():
 	charName.text = _data.name
 	_sprite.texture = _data.sprite_sheet

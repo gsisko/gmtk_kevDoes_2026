@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://dum2pujhh1w4g" path="res://addons/maaacks_game_template/examples/scenes/windows/main_menu_options_window.tscn" id="3_cfr4i"]
 [ext_resource type="Texture2D" uid="uid://cdwurgxtl10dg" path="res://Assets/Textures/Backgrounds/Title screen 1 up.png" id="4_1wns4"]
 [ext_resource type="PackedScene" uid="uid://c5pfkjxskjc60" path="res://addons/maaacks_game_template/examples/scenes/windows/main_menu_credits_window.tscn" id="4_qhsni"]
+[ext_resource type="AudioStream" uid="uid://d32v4mqquj4cs" path="res://Assets/Audio/bgm/hitslab-western-cowboy-western-music-543089.mp3" id="5_dj7gb"]
 [ext_resource type="AudioStream" uid="uid://cb25dwl75abge" path="res://Assets/Audio/sfx/PlayerGunshot.wav" id="5_gysq3"]
 [ext_resource type="Texture2D" uid="uid://c8apsjculrwm6" path="res://Assets/Textures/Backgrounds/Title screen 1down.png" id="5_qhsni"]
-[ext_resource type="AudioStream" uid="uid://bdttsqw4gucxl" path="res://Assets/Audio/sfx/LossJingle.wav" id="6_gysq3"]
 [ext_resource type="Script" uid="uid://d2pck80iorg5d" path="res://addons/maaacks_game_template/examples/scenes/menus/main_menu/bgm.gd" id="7_dsclc"]
 [ext_resource type="Script" uid="uid://bww8ppihsuk22" path="res://addons/maaacks_game_template/examples/scenes/menus/main_menu/ui.gd" id="8_i1y08"]
 [ext_resource type="Script" uid="uid://dnpbl1s7lvmvj" path="res://addons/maaacks_game_template/examples/scenes/menus/main_menu/sfx.gd" id="8_q1t3s"]
@@ -73,7 +73,7 @@ script = ExtResource("2_lk0wa")
 _bg_idle_texture = ExtResource("5_qhsni")
 _bg_play_texture = ExtResource("4_1wns4")
 _bg_anim_length = 0.5
-_menu_bgm = ExtResource("6_gysq3")
+_menu_bgm = ExtResource("5_dj7gb")
 _sfx_gunshot = ExtResource("5_gysq3")
 options_packed_scene = ExtResource("3_cfr4i")
 credits_packed_scene = ExtResource("4_qhsni")
@@ -108,7 +108,11 @@ theme_override_constants/margin_top = 44
 theme_override_colors/font_color = Color(0.10980392, 0.08235294, 0.047058824, 1)
 theme_override_font_sizes/font_size = 90
 
+[node name="TextureRect" parent="MenuContainer/TitleMargin/TitleContainer" parent_id_path=PackedInt32Array(704939549) index="1" unique_id=478809231]
+offset_bottom = 157.66
+
 [node name="SubTitleMargin" parent="MenuContainer" parent_id_path=PackedInt32Array(785053879) index="1" unique_id=893436372]
+visible = false
 theme_override_constants/margin_top = 153
 theme_override_constants/margin_right = -212
 

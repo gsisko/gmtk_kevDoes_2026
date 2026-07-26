@@ -15,6 +15,8 @@ var state:BATTLE_STATE = BATTLE_STATE.Battle_Start :
 @onready var players:Array[PlayerCharacter] = [$PlayerCharacter, $PlayerCharacter2]
 @onready var camera:Camera2D = $Camera2D
 
+@export var _battle_theme:AudioStream
+
 @export var round_length_sec:float = 5
 @onready var round_timer:Timer = $Timer
 
@@ -32,6 +34,8 @@ func _ready() -> void:
 	
 	camera.make_current()
 	round_timer.timeout.connect(end_round)
+	
+	
 	for i in players:
 		i.attacked.connect(end_round)
 		i.dead.connect(end_battle)
@@ -81,9 +85,12 @@ func _win_condition_met()->bool:
 #region BATTLE FSM
 func _on_enter_state():
 	if Engine.is_editor_hint():return
+	
+	
 	print("ENTERING - %s" %[BATTLE_STATE.keys()[state]])
 	match state:
 		BATTLE_STATE.Battle_Start: 
+			AudioManager.switch_bgm(_battle_theme)
 			GameManager.ui.show_hud()
 			#ensure both players are reset
 			for i in players: 
