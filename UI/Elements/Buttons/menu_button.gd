@@ -29,7 +29,7 @@ func _on_pressed() -> void:
 
 func _on_focus_entered() -> void: 
 	if disabled:return
-	AudioManager.play_sfx(_sfx_hover)
+	AudioManager.play_ui_sfx(_sfx_hover)
 func _on_mouse_entered() -> void: 
 	if disabled:return
-	AudioManager.play_sfx(_sfx_hover)
+	AudioManager.play_ui_sfx(_sfx_hover)

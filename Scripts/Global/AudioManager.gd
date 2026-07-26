@@ -24,5 +24,8 @@ func play_sfx(sound:AudioStream):
 	if _sfx_player:
 		_sfx_player.stream = sound
 		_sfx_player.play()
-	
+func play_ui_sfx(sound:AudioStream):
+	if _ui_player:
+		_ui_player.stream = sound
+		_ui_player.play()
 	
